@@ -31,12 +31,22 @@ import express from 'express';
 const app = express();
 const port = 3000;
 
-app.use(express.urlencoded({
+app.use('/dosomething', express.urlencoded({
     extended: true
+}));
+
+app.use('/dosomethingbinary', express.raw({
+    inflate: true,
+    limit: '100kb',
+    type: '*/*'
 }));
 
 app.get('/dosomething', (req, res) => {
     res.send(`Params GET: ${JSON.stringify(req.query)}`)
+});
+
+app.get('/dosomethingasadmin', (req, res) => {
+    res.send(`(ADMIN) Params GET: ${JSON.stringify(req.query)}`)
 });
 
 app.post('/dosomething', (req, res) => {
@@ -44,11 +54,18 @@ app.post('/dosomething', (req, res) => {
     res.send(`Params POST: ${JSON.stringify(req.body)}`)
 });
 
+app.post('/dosomethingbinary', (req, res) => {
+    console.log(req.body);
+    res.send(`Params POST: ${JSON.stringify(req.body)}`)
+});
+
 app.listen(port, () => {
     console.log(`Server listening: http://localhost:${port}/dosomething`)
+    console.log(`Server listening: http://localhost:${port}/dosomethingasadmin`)
+    console.log(`Server listening: http://localhost:${port}/dosomethingbinary`)
 });
 ```
 
 6. Execute o seguinte comando `node index.js`
-7. A partir deste momento, siga os exemplos do tutorial, e sempre que for especificado um formulário, coloque o endereço correspondente (GET ou POST) no atributo `action`.
+7. A partir deste momento, siga os exemplos do tutorial, e sempre que for especificado um formulário, no atributo `action` substitua o endereço pelo correspondente aqui criado.
 

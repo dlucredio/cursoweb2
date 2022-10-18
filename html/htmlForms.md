@@ -1,4 +1,4 @@
-O conteúdo desta parte é baseado no tutorial [W3Schools Forms](https://www.w3schools.com/html/html_forms.asp)
+O conteúdo desta parte é baseado no tutorial [W3Schools HTML Forms](https://www.w3schools.com/html/html_forms.asp)
 
 Para testar o envio dos dados dos formulários, vamos criar um servidor para receber as requisições enviadas pelo navegador. Você vai precisar do [node.js](nodejs.org) instalado.
 

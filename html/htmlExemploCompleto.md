@@ -295,7 +295,7 @@ app.listen(3000, function () {
 
 15. Testar e observar que agora uma mensagem aparece mostrando a última aposta do usuário. Mas a página não proíbe que ele envie novamente
 16. Agora vamos modificar a forma de fazer o palpite, usando *drag and drop*
-17. Baixar as imagens das bandeiras dos países [aqui](./flags) e salvar na pasta `public/flags`
+17. Baixar as imagens das bandeiras dos países [aqui](./flags.zip) e salvar na pasta `public/flags`
 18. Modificar o arquivo `index.html`:
 
 ```diff

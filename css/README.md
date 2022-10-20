@@ -57,4 +57,10 @@ Conteúdo do tutorial CSS
 * CSS Grid: basta seguir o site
     * Alternativamente, o [site do Firefox sobre CSS Grid](https://mozilladevelopers.github.io/playground/css-grid) é muito bom também
 
+<hr/>
 
+Agora vamos fazer um mesmo site, responsivo, usando três técnicas CSS diferentes:
+
+* [Usando CSS float](cssFloat.md)
+* [Usando CSS flexbox](cssFlexbox.md)
+* [Usando CSS grid](cssGrid.md)

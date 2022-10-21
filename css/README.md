@@ -49,6 +49,11 @@ Conteúdo do tutorial CSS
 * CSS Tutorial: basta seguir o site, mas há as seguintes particularidades:
     * No exemplo de Margens que colapsam, segue uma [explicação para esse comportamento](https://bitsofco.de/collapsible-margins/)
     * Pular o exemplo de Website Layout (flexbox e grid são melhores)
+    * Em relação a unidades CSS:
+        * [https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units)
+        * [https://gist.github.com/basham/2175a16ab7c60ce8e001](https://gist.github.com/basham/2175a16ab7c60ce8e001)
+        * [https://medium.com/swlh/css-units-which-ones-to-use-and-avoid-31e4ed461f9](https://medium.com/swlh/css-units-which-ones-to-use-and-avoid-31e4ed461f9)
+
 * CSS Advanced: não é necessário estudar neste momento, pois são assuntos bem específicos. Mas é bom olhar seu conteúdo para saber onde procurar depois, EXCETO:
     * CSS Media Queries
     * CSS Flexbox
@@ -64,3 +69,7 @@ Agora vamos fazer um mesmo site, responsivo, usando três técnicas CSS diferent
 * [Usando CSS float](cssFloat.md)
 * [Usando CSS flexbox](cssFlexbox.md)
 * [Usando CSS grid](cssGrid.md)
+
+Por fim, um exemplo de barra de navegação responsiva
+
+* [Barra de navegação responsiva](barraNavegacao.md)

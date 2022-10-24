@@ -1,0 +1,70 @@
+O [Tailwind CSS](https://tailwindcss.com/) é um framework para facilitar a criação de layouts responsivos em páginas web utilizando classes CSS predefinidas que podem ser combinadas à vontade, sem a necessidade de escrever classes.
+
+Tailwind CSS é, no fundo, um monte de classes prontas para serem utilizadas e combinadas de modo a produzir o resultado desejado. Por esse motivo, é impossível estudar tudo de uma vez. Assim, adotaremos uma abordagem mais essencial.
+
+Veremos alguns exemplos, fazendo uso de alguns recursos, para que o estudante compreenda a essência do framework. Em seguida, o estudante deverá aprender a utilizar a documentação para conseguir aprender tudo o que o Tailwind pode oferecer.
+
+<hr/>
+
+Primeiro exemplo, um "Alô mundo utilizando Tailwind CSS"
+
+1. Crie uma pasta chamada `tailwind-css-tutorial`
+2. Execute os seguintes comandos
+```sh
+npm init
+npm install -D tailwindcss
+npx tailwindcss init
+```
+3. Modifique o arquivo `tailwind.config.js`:
+```diff
+/** @type {import('tailwindcss').Config} */
+module.exports = {
++  content: ["./index.html"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+4. Crie um arquivo chamado `tailwindInput.css`, com o seguinte conteúdo:
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+5. Modifique o arquivo `package.json`:
+```diff
+{
+  "name": "tailwind-css-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
++    "tailwind-watch": "tailwindcss -i tailwindInput.css -o tailwindOutput.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.2.1"
+  }
+}
+```
+6. Crie um arquivo chamado `index.html`, com o seguinte conteúdo:
+```html
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="tailwindOutput.css" rel="stylesheet">
+</head>
+<body>
+  <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+</body>
+</html>
+```
+7. Execute o comando `npm run tailwind-watch`
+8. Abra o arquivo `index.html` no navegador

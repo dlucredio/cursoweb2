@@ -70,6 +70,10 @@ Agora vamos fazer um mesmo site, responsivo, usando três técnicas CSS diferent
 * [Usando CSS flexbox](cssFlexbox.md)
 * [Usando CSS grid](cssGrid.md)
 
-Por fim, um exemplo de barra de navegação responsiva
+Agora um exemplo de barra de navegação responsiva
 
 * [Barra de navegação responsiva](barraNavegacao.md)
+
+Por fim, é interessante estudar algum framework moderno para CSS, como o tailwind. Veja exemplos a seguir:
+
+* [Tailwind CSS](tailwind.md)

@@ -68,7 +68,7 @@ module.exports = {
 ```
 7. Execute o comando `npm run tailwind-watch`
 8. Abra o arquivo `index.html` no navegador. Se estiver usando o VSCode, considere executar a extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para facilitar a atualização.
-9. Veja como o texto "Hello world!" está sendo exibido em tamanho grande, negrito e sublinhado, conforme as classes do elemento `h1`.
+9. Veja como o texto "Hello world!" está sendo exibido em tamanho grande, negrito e sublinhado, conforme as classes do elemento `h1`. Quaisquer mudanças feitas no código são imediatamente atualizadas no navegador.
 10. Conceitos principais:
 * [Utility-first Fundamentals](https://tailwindcss.com/docs/utility-first)
 * [Hover, Focus and Other States](https://tailwindcss.com/docs/hover-focus-and-other-states)
@@ -83,4 +83,9 @@ module.exports = {
 
 Alguns exemplos de páginas construídas utilizando Tailwind CSS:
 
-* [Site responsivo 1](tailwindExemplo1.md)
+* [Site responsivo](tailwindExemplo1.md)
+* [Barra estilo Discord](tailwindExemplo2.md)
+
+Outros recursos:
+
+* [Crash course (tutorial em inglês)](https://www.youtube.com/watch?v=dFgzHOX84xQ)

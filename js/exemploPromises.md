@@ -329,3 +329,23 @@ function getDataFromDefinition(definition) {
 +// Basta chamar a função
 +execute();
 ```
+
+12. Pronto, você já sabe como funcionam as Promises. E agora deve entender esse exemplo, que é bastante comum em tutoriais JavaScript:
+
+```js
+function getMovies() {
+    fetch('http://example.com/movies.json') // Faz a requisição (ação demorada)
+    .then((response) => response.json()) // Converte a resposta de JSON para objeto JavaScript (ação demorada)
+    .then((data) => console.log(data)); // Pronto, agora pode usar o resultado
+}
+```
+
+13. Ou, reescrevendo usando `async/await`:
+
+```js
+async function getMovies() {
+    const response = await fetch('http://example.com/movies.json');
+    const data = await response.json();
+    console.log(data);
+}
+```

@@ -50,7 +50,7 @@ console.log('Wait...');
 +});
 ```
 
-6. Em casos simples como esse, tudo bem. Mas quando começam a aparecer detalhes como a necessidade de encadear chamadas demoradas ou a necessidade de tratamento de erros? Por exemplo:
+6. Em casos simples como esse, tudo bem. Mas e quando começam a aparecer detalhes como a necessidade de encadear chamadas demoradas ou a necessidade de tratamento de erros? Por exemplo:
 
 ```js
 function pauseExecution(millis) {
@@ -104,7 +104,7 @@ try {
 }
 ```
 
-7. Na versão sem callbacks, tudo certo. Mas ao converter essa solução para _callbacks_, teremos a _callback pyramid of doom_. Veja no exemplo a seguir, como o encadeamento é ruim em termos de legibilidade de código, além de causar a duplicação no tratamento de erros (que neste caso é uniforme para os dois tipos de erro):
+7. Na versão sem callbacks, tudo certo. Mas ao converter essa solução para _callbacks_, teremos a _callback pyramid of doom_. Veja no exemplo a seguir, como o encadeamento é ruim em termos de legibilidade de código, além de causar a duplicação no tratamento de erros, que neste caso deveria ser uniforme para os dois tipos de erro:
 
 ```js
 function pauseExecution(millis) {
@@ -205,6 +205,9 @@ function pauseExecution(millis)
 
 const x = 'hello';
 console.log('Wait...');
++// O segredo está na chamada "then", que redireciona corretamente o resultado
++// para um callback de acordo com o resultado, mas também permite o encadeamento
++// e tratamento de erros
 +getWordDefinition(x).then(y => {
     console.log(x + ' means: ' + y);
 });
@@ -262,8 +265,8 @@ getWordDefinition(x)
 ```
 
 10. Importante:
-* Sempre retornar um valor para poder encadear as promessas
-* É possível encadear ações depois de um `catch`
+* Sempre retornar um valor entre um callback e outro, para poder encadear as promessas, caso contrário haverá uma promessa "flutuando"
+* É possível encadear ações depois de um `catch`, apesar de não ser algo comum
 
 11. Nota-se que o código ficou muito parecido com código síncrono. Tanto é que surgiu o padrão async/await:
 
@@ -313,7 +316,7 @@ function getDataFromDefinition(definition) {
     console.log('Wait...');
 
 +    // Agora com estilo síncrono de programação
-+    // Mas com Promises por trás
++    // Parece síncrono mas é assíncrono e todo baseado em Promises
 +    try {
 +        const definition = await getWordDefinition(x);
 +        const data = await getDataFromDefinition(definition);

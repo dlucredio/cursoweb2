@@ -349,3 +349,192 @@ async function getMovies() {
     console.log(data);
 }
 ```
+
+14. Vamos ver outro exemplo:
+
+```js
+function function1(cb) {
+    setTimeout(function() {
+        const err = false;
+        cb(err, 'Finished function 1');
+    }, 300);
+}
+
+function function2(cb) {
+    setTimeout(function() {
+        const err = false;
+        cb(err, 'Finished function 2');
+    }, 200);
+}
+
+console.log("Calling function 1");
+function1((err, result) => {
+    if(err) { console.log("Error in function 1: "+err); }
+    else { console.log(result); }
+});
+console.log("Calling function 2");
+function2((err, result) => {
+    if(err) { console.log("Error in function 2: "+err); }
+    else { console.log(result); }
+});
+console.log("Both functions have been called");
+```
+
+15. Testar inserindo erros nas funções.
+16. Vamos fazer as funções serem executadas uma após a outra agora. Modificar o código:
+
+```js
+console.log("Calling function 1");
+function1((err, result) => {
+    if(err) { console.log("Error in function 1: "+err); }
+    else { 
+        console.log(result);
+        console.log("Calling function 2");
+        function2((err, result) => {
+            if(err) { console.log("Error in function 2: "+err); }
+            else { 
+                console.log(result); 
+                console.log("Both functions have been called");
+            }
+        });
+    }
+});
+```
+
+17. Novamente, apareceu a _callback pyramid of doom_. _Promises_ nela!
+
+```js
+function function1() {
+    return new Promise((resolve, reject) => {
+        setTimeout(function() {
+            const err = false;
+            if(err) {
+                reject(err);
+            } else {
+                resolve('Finished function 1');
+            }
+        }, 300);
+    });
+}
+
+function function2() {
+    return new Promise((resolve, reject) => {
+        setTimeout(function() {
+            const err = false;
+            if(err) {
+                reject(err);
+            } else {
+                resolve('Finished function 2');
+            }
+        }, 200);
+    });
+}
+
+console.log("Calling function 1");
+function1()
+    .then(result => console.log(result))
+    .catch(err => console.log("Error in function 1: "+err));
+console.log("Calling function 2");
+function2()
+    .then(result => console.log(result))
+    .catch(err => console.log("Error in function 2: "+err));
+console.log("Both functions have been called");
+```
+
+18. Agora fazendo as funções serem chamadas na sequência:
+
+```js
+console.log("Calling function 1");
+const d1 = new Date().getTime();
+function1()
+    .then(resultF1 => console.log(resultF1))
+    .then(() => console.log("Calling function 2"))
+    .then(() => function2())
+    .then(resultF2 => console.log(resultF2))
+    .then(() => console.log("Both functions have been called"))
+    .then(() => {
+         const d2 = new Date().getTime();
+         console.log("Elapsed time: "+(d2-d1));
+    })
+    .catch(err => console.log("Error in some function: "+err));
+```
+
+19. Testar inserindo erros nas funções. Observe que agora um único "catch" é responsável por qualquer erro na cadeia
+20. Dá para reescrever esse código usando async/await, levando a um estilo mais próximo à programação síncrona:
+
+```js
+async function execute() {
+    try {
+        console.log("Calling function 1");
+        const d1 = new Date().getTime();
+        const resultF1 = await function1();
+        console.log(resultF1);
+        console.log("Calling function 2");
+        const resultF2 = await function2();
+        console.log(resultF2);
+        console.log("Both functions have been called");
+        const d2 = new Date().getTime();
+        console.log("Elapsed time: "+(d2-d1));
+    } catch (err) {
+        console.log("Error in some function: "+err);
+    }
+}
+
+execute();
+```
+
+21. Com Promises dá para ir além. Caso eu queira esperar o resultado de ambos para seguir adiante, mas sem cair na sequencialidade:
+
+```js
+const d1 = new Date().getTime();
+console.log("Calling functions 1 and 2");
+Promise.all([function1(), function2()])
+    .then(([resultF1,resultF2]) => {
+        console.log(resultF1+", "+resultF2);
+        const d2 = new Date().getTime();
+        console.log("Elapsed time: "+(d2-d1));
+    })
+    .catch(err => console.log("Error in some function: "+err));
+console.log("Both functions have been called");
+```
+
+22. Se quiser usar o estilo síncrono sem perder essa possibilidade, dá para utilizar async/await, mas no resultado, e não na chamada:
+
+```js
+async function execute() {
+    try {
+        console.log("Calling function 1");
+        const d1 = new Date().getTime();
+        const resultF1 = function1();
+        console.log("Calling function 2");
+        const resultF2 = function2();
+        console.log("Both functions have been called");
+        console.log(await resultF1+", "+await resultF2);
+        const d2 = new Date().getTime();
+        console.log("Elapsed time: "+(d2-d1));
+    } catch (err) {
+        console.log("Error in some function: "+err);
+    }
+}
+
+execute();
+```
+
+23. O problema com o código acima é se houver rejeição, pois esse padrão apenas lança uma das rejeições, saltando imediatamente para o "catch". Quando a próxima rejeição chegar, não haverá bloco "catch" para capturá-la. Mas dá para fazer um combinado das duas abordagens, em um meio termo bastante aceitável:
+
+```js
+async function execute() {
+    try {
+        console.log("Calling functions 1 and 2");
+        const d1 = new Date().getTime();
+        const [resultF1, resultF2] = await Promise.all([function1(),function2()]);
+        console.log(resultF1+", "+resultF2);
+        const d2 = new Date().getTime();
+        console.log("Elapsed time: "+(d2-d1));
+    } catch (err) {
+        console.log("Error in some function: "+err);
+    }
+}
+
+execute();
+```

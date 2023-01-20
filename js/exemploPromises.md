@@ -520,7 +520,7 @@ async function execute() {
 execute();
 ```
 
-23. O problema com o código acima é se houver rejeição, pois esse padrão apenas lança uma das rejeições, saltando imediatamente para o "catch". Quando a próxima rejeição chegar, não haverá bloco "catch" para capturá-la. Mas dá para fazer um combinado das duas abordagens, em um meio termo bastante aceitável:
+23. O problema com o código acima é se houver rejeição em ambas as chamadas, pois esse padrão apenas lança uma das rejeições, saltando imediatamente para o "catch". Quando a próxima rejeição chegar, não haverá bloco "catch" para capturá-la, gerando uma inconsistência. Mas dá para fazer um combinado das duas abordagens, em um meio termo bastante aceitável:
 
 ```js
 async function execute() {

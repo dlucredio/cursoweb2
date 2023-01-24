@@ -5,3 +5,5 @@ Antes, porém, veja esta [apresentação introdutória](https://www.canva.com/de
 Em seguida, você pode olhar os seguintes exemplos:
 
 * [Exemplo introdutório usando classes](./exemploIntrodutorioClasses.md)
+* [Acessando o back-end usando classes](./acessandoBackendClasses.md)
+* [Exemplo introdutório usando hooks](./exemploIntrodutorioHooks.md)

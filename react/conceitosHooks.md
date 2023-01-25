@@ -4,7 +4,7 @@ A documentação a seguir apresenta React diretamente usando Hooks, sem menciona
 
 * [Learn React](https://beta.reactjs.org/learn)
 
-Neste momento, focaremos nos seguintes tópicos. No final há exercícios e exemplos executáveis. No entanto, para experimentar com os conceitos à medida que são apresentados, crie seu próprio projeto e experimente. Para isso, execute o comando: `npx create-react-app alo-mundo-react-hooks`
+Neste momento, focaremos nos seguintes tópicos. No final há exercícios e exemplos executáveis que podem ser feitos na própria página. No entanto, se quiser experimentar com os conceitos à medida que são apresentados, crie seu próprio projeto. Para isso, execute o comando: `npx create-react-app conceitos-react-hooks`
 
 * [State: A Component's Memory](https://beta.reactjs.org/learn/state-a-components-memory)
 * [Referencing Values with Refs](https://beta.reactjs.org/learn/referencing-values-with-refs)

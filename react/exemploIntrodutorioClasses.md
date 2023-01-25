@@ -10,7 +10,7 @@ npm start
 ```
 
 3. Será exibida uma janela do browser com a página criada
-4. Abrir o arquivo `alo-mundo-react/src/App.js` e modificar seu conteúdo para incluir um estado e alguns componentes. Primeiro veremos no estilo orientado a objetos.
+4. Abrir o arquivo `src/App.js` e modificar seu conteúdo para incluir um estado e alguns componentes. Primeiro veremos no estilo orientado a objetos.
 
 ```jsx
 import React, { Component } from 'react';
@@ -102,22 +102,8 @@ export default App;
   }
 ```
 
-9. Outra opção:
-
-```jsx
-  async handleTextChanged(e) {
-    await this.setState({ texto: e.target.value });
-    console.log('handleTextChanged:' + this.state.texto);
-  }
-
-  async handleButtonClick() {
-    await this.setState({ texto: 'Alo mundo' });
-    console.log('handleButtonClick:' + this.state.texto);
-  }
-```
-
-10. Agora vamos criar componentes
-11. Criar novo arquivo `src/Painel.js`
+9. Agora vamos criar componentes
+10. Criar novo arquivo `src/Painel.js`
 
 ```jsx
 import React from 'react';
@@ -153,7 +139,7 @@ class Painel extends React.Component {
 export default Painel;
 ```
 
-12. Modificar o arquivo App.js para incluir o painel
+11. Modificar o arquivo App.js para incluir o painel
 
 ```diff
 import React, { Component } from 'react';
@@ -200,9 +186,9 @@ class App extends Component {
 export default App;
 ```
 
-13. Testar
-14. Agora vamos adicionar elementos à lista dinamicamente
-15. Modificar o arquivo `App.js` para conter o estado da aplicação
+12. Testar
+13. Agora vamos adicionar elementos à lista dinamicamente
+14. Modificar o arquivo `App.js` para conter o estado da aplicação
 
 ```diff
 import React, { Component } from 'react';
@@ -261,7 +247,7 @@ class App extends Component {
 export default App;
 ```
 
-16. Modificar o arquivo Painel.js para receber a lista via propriedades
+15. Modificar o arquivo Painel.js para receber a lista via propriedades
 
 ```diff
 import React from 'react';
@@ -286,9 +272,9 @@ class Painel extends React.Component {
 export default Painel;
 ```
 
-17. Testar e ver que agora o estado é mantido em um único local. Abrir o console do navegador para ver a mensagem de erro. Notar que não é recomendável haver dois componentes com a mesma chave (particularidade do React)
-18. Agora vamos modificar o estado do pai a partir de um componente filho
-19. Modificar o arquivo `Painel.js` para incluir um botão para remover elementos da lista, com evento vinculado a um prop
+16. Testar e ver que agora o estado é mantido em um único local. Abrir o console do navegador para ver a mensagem de erro. Notar que não é recomendável haver dois componentes com a mesma chave (particularidade do React)
+17. Agora vamos modificar o estado do pai a partir de um componente filho
+18. Modificar o arquivo `Painel.js` para incluir um botão para remover elementos da lista, com evento vinculado a um prop
 
 ```diff
 import React from 'react';
@@ -317,7 +303,7 @@ class Painel extends React.Component {
 export default Painel;
 ```
 
-20. Modificar o arquivo App.js para tratar o evento gerado no filho
+19. Modificar o arquivo App.js para tratar o evento gerado no filho
 
 ```diff
 import React, { Component } from 'react';
@@ -388,9 +374,9 @@ class App extends Component {
 export default App;
 ```
 
-21. Testar
-22. Agora vamos validar a entrada, para proibir elementos repetidos
-23. Modificar o arquivo `App.js` para incluir a validação
+20. Testar
+21. Agora vamos validar a entrada, para proibir elementos repetidos
+22. Modificar o arquivo `App.js` para incluir a validação
 
 ```diff
 import React, { Component } from 'react';
@@ -479,8 +465,8 @@ class App extends Component {
 export default App;
 ```
 
-24. Testar
-25. Adicionar uma mensagem que é exibida condicionalmente
+23. Testar
+24. Adicionar uma mensagem que é exibida condicionalmente
 
 ```diff
         <button onClick={() => this.handleButtonClick()} disabled={this.state.botaoDesabilitado}>Adicionar</button>
@@ -490,4 +476,5 @@ export default App;
         <Painel lista={this.state.lista} removerElemento={(nome) => this.removerElemento(nome)} />
 ```
 
-26. Testar
+25. Testar
+26. Essa solução não está muito boa. Além da duplicação de código (chamada para `validar()` repetidas vezes), estamos criando uma variável de estado desnecessária (`botaoDesabilitado`). Mas vamos deixar para corrigir isso em um próximo exemplo!

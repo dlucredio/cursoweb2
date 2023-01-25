@@ -7,3 +7,4 @@ Em seguida, você pode olhar os seguintes exemplos:
 * [Exemplo introdutório usando classes](./exemploIntrodutorioClasses.md)
 * [Acessando o back-end usando classes](./acessandoBackendClasses.md)
 * [Conceitos de hooks](./conceitosHooks.md)
+* [Exemplo introdutório usando funcoes](./exemploIntrodutorioFuncoes.md)

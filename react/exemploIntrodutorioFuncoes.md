@@ -325,7 +325,7 @@ export default App;
 16. Modificar o arquivo Painel.js para receber a lista via propriedades
 
 ```diff
-import { useState } from 'react';
+-import { useState } from 'react';
 
 -function Painel({texto}) {
 +function Painel({lista}) {
@@ -383,7 +383,6 @@ export default Painel;
 
 ```diff
 import { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Painel from './Painel';
 
@@ -446,7 +445,6 @@ export default App;
 
 ```diff
 +import { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Painel from './Painel';
 
@@ -505,7 +503,6 @@ export default App;
 
 ```diff
 +import { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Painel from './Painel';
 

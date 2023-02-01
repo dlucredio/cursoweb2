@@ -62,7 +62,7 @@ app.listen(5000, () => {
 });
 ```
 
-6. Para testar, enviar algumas requisições:
+6. Para testar, executar `node src/app.js` e enviar algumas requisições:
 
 ```
 GET http://localhost:5000/cor
@@ -73,8 +73,8 @@ PUT http://localhost:5000/cor
 Content-Type: application/json
 
 {
-    "name": "vermelho",
-    "value": "#FF0000"
+    "nome": "vermelho",
+    "valor": "#FF0000"
 }
 
 ###
@@ -83,8 +83,8 @@ PUT http://localhost:5000/cor
 Content-Type: application/json
 
 {
-    "name": "verde",
-    "value": "#00FF00"
+    "nome": "verde",
+    "valor": "#00FF00"
 }
 
 ###
@@ -93,8 +93,18 @@ PUT http://localhost:5000/cor
 Content-Type: application/json
 
 {
-    "name": "azul",
-    "value": "#0000FF"
+    "nome": "azul",
+    "valor": "#0000FF"
+}
+
+###
+
+PUT http://localhost:5000/cor
+Content-Type: application/json
+
+{
+    "nome": "amarelo",
+    "valor": "yellow"
 }
 
 ###

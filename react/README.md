@@ -8,3 +8,5 @@ Em seguida, você pode olhar os seguintes exemplos:
 * [Acessando o back-end usando classes](./acessandoBackendClasses.md)
 * [Conceitos de hooks](./conceitosHooks.md)
 * [Exemplo introdutório usando funcoes](./exemploIntrodutorioFuncoes.md)
+* [Acessando o back-end usando funcoes](./acessandoBackendFuncoes.md)
+* [Aplicação completa front-end + back-end](./aplicacaoCompleta.md)

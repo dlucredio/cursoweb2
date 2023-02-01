@@ -1,5 +1,5 @@
 1. Abrir o [exemplo anterior](./acessandoBackendClasses.md) e recriar o back-end (não se esqueça de habilitar CORS).
-2. Abrir o [exemplo anterior](./exemploIntrodutorioFuncoes.md). O código original era assim:
+2. Abrir o [exemplo anterior usando funções](./exemploIntrodutorioFuncoes.md). O código original era assim:
 
 - `src/App.js`:
 

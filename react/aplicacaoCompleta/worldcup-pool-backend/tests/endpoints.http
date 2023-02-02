@@ -1,0 +1,25 @@
+PUT http://localhost:5000/gambler
+Content-Type: application/json
+
+{
+    "name": "Daniel",
+    "email": "daniel@email.com",
+    "phone": "12345",
+    "birth_date": "1979-09-27"
+}
+
+###
+
+GET http://localhost:5000/gambler?email=daniel@email.com
+
+###
+
+PUT http://localhost:5000/bet
+Content-Type: application/json
+
+{
+    "champion": "Brasil",
+    "runner_up": "Argentina",
+    "gambler_id": "f039efc0-4ec4-407d-bc00-1200fcbefd47",
+    "bet_date": "2023-02-02"
+}

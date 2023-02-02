@@ -6,7 +6,7 @@ Para este exemplo, será utilizado o SGBD [MySql Community Server](https://dev.m
 mkdir worldcup-pool-backend
 cd bolaodacopa-backend
 npm init
-npm install express mysql2 uuid
+npm install express mysql2 uuid cors
 ```
 
 2. Modificar o arquivo `package.json`:
@@ -24,6 +24,7 @@ npm install express mysql2 uuid
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "mysql2": "^3.1.0",
     "uuid": "^9.0.0"
@@ -46,7 +47,7 @@ CREATE TABLE gambler
     name VARCHAR(256) NOT NULL,
     email VARCHAR(256) NOT NULL,
     phone VARCHAR(24) NOT NULL,
-    birthDate DATE,
+    birth_date DATE,
     PRIMARY KEY(id)
 );
 
@@ -56,6 +57,7 @@ CREATE TABLE bet
     champion VARCHAR(256) NOT NULL,
     runner_up VARCHAR(256) NOT NULL,
     gambler_id BINARY(16) NOT NULL,
+    bet_date DATE NOT NULL,
     PRIMARY KEY(id),
     FOREIGN KEY(gambler_id)
         REFERENCES gambler(id)
@@ -128,16 +130,16 @@ import { getPool } from './database.js';
 import { CustomError, CustomErrorType } from './utils.js';
 
 const INSERT_GAMBLER =
-    `INSERT INTO gambler(id,name,email,phone,birthDate)
+    `INSERT INTO gambler(id,name,email,phone,birth_date)
                  VALUES (UUID_TO_BIN(?),?,?,?,?)`;
 
 const SELECT_GAMBLER_BY_ID =
-    `SELECT BIN_TO_UUID(id) as id,name,email,phone,birthDate
+    `SELECT BIN_TO_UUID(id) as id,name,email,phone,birth_date
             FROM gambler
             WHERE id=UUID_TO_BIN(?)`;
 
 const SELECT_GAMBLER_BY_EMAIL =
-    `SELECT BIN_TO_UUID(id) as id,name,email,phone,birthDate
+    `SELECT BIN_TO_UUID(id) as id,name,email,phone,birth_date
             FROM gambler
             WHERE email=?`;
 
@@ -176,7 +178,7 @@ export async function createGambler(gambler) {
                 gambler.name,
                 gambler.email,
                 gambler.phone,
-                gambler.birthDate
+                gambler.birth_date
             ]);
     } catch (err) {
         throw new CustomError(CustomErrorType.DatabaseError,

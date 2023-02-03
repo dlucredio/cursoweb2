@@ -2,7 +2,7 @@ import { NavBar } from "../components/NavBar";
 
 function PlaceBet() {
     return (
-        <div className="h-screen flex flex-col dark:bg-slate-900">
+        <div className="h-full flex flex-col dark:bg-slate-900">
             <NavBar />
             <div className=" flex-1 flex flex-col items-center m-2">
                 <div className="flex flex-wrap justify-center w-full max-w-lg">

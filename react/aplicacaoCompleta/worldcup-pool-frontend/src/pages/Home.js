@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
     return (
-        <div className="bg-white dark:bg-slate-900 w-full h-screen flex flex-col justify-center items-center">
+        <div className="bg-white dark:bg-slate-900 w-full h-full flex flex-col justify-center items-center">
             <div className="bg-gray-300 dark:bg-slate-800 flex flex-col justify-center items-center w-full h-full md:w-fit md:h-fit md:p-16 md:rounded-3xl">
             <div className="text-blue-800 dark:text-blue-400 text-center pb-12 text-2xl font-black uppercase">Bolão da copa</div>
             <div className="flex flex-col justify-center items-stretch">

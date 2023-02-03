@@ -2,7 +2,9 @@ import { Outlet, Link } from "react-router-dom";
 
 const Layout = () => {
     return (
-        <Outlet />
+        <div className="dark">
+            <Outlet />
+        </div>
     )
 };
 

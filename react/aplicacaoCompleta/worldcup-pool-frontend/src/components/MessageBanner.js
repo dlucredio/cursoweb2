@@ -10,7 +10,7 @@ export function MessageBanner({ content, type }) {
         throw 'Banner must be either warning, info or error';
     }
 
-    const bannerClasses = bannerColorClasses + ' flex flex-row flex-wrap items-center text-center rounded p-2 w-full max-w-lg text-sm';
+    const bannerClasses = bannerColorClasses + ' text-center rounded p-2 w-full max-w-lg text-sm';
 
     return <div className={bannerClasses}>
         {content}

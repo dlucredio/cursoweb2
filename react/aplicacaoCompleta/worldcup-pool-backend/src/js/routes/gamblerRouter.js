@@ -1,15 +1,21 @@
 import express from 'express';
-import { createGambler, retrieveGamblerByEmail } from '../persistence/gamblerPersistence.js';
+import { createGambler, updateGambler, retrieveGamblerByEmail } from '../persistence/gamblerPersistence.js';
 
 const router = express.Router();
 
 router.put('/', async (req, res) => {
     try {
-        const newGambler = await createGambler(req.body);
-        return res.json(newGambler);
+        if (req.body.id) {
+            const updatedGambler = await updateGambler(req.body);
+            return res.json(updatedGambler);
+
+        } else {
+            const newGambler = await createGambler(req.body);
+            return res.json(newGambler);
+        }
     } catch (err) {
         console.log(err);
-        res.status(500).send('Error creating gambler');
+        res.status(500).send('Error creating/updating gambler');
     }
 });
 

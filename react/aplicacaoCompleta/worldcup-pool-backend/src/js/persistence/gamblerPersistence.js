@@ -6,6 +6,10 @@ const INSERT_GAMBLER =
     `INSERT INTO gambler(id,name,email,phone,birth_date)
                  VALUES (UUID_TO_BIN(?),?,?,?,?)`;
 
+const UPDATE_GAMBLER =
+    `UPDATE gambler set name=?,phone=?,birth_date=?
+            WHERE BIN_TO_UUID(id)=?`;
+
 const SELECT_GAMBLER_BY_ID =
     `SELECT BIN_TO_UUID(id) as id,name,email,phone,DATE_FORMAT(birth_date,'%Y-%m-%d') as birth_date
             FROM gambler
@@ -57,7 +61,24 @@ export async function createGambler(gambler) {
         return gambler;
     } catch (err) {
         throw new CustomError(CustomErrorType.DatabaseError,
-            'Error creating gambler: ' + gambler.id,
+            'Error creating gambler: ' + gambler.email,
+            err);
+    }
+}
+
+export async function updateGambler(gambler) {
+    try {
+        await getPool().execute(UPDATE_GAMBLER,
+            [
+                gambler.name,
+                gambler.phone,
+                gambler.birth_date,
+                gambler.id,
+            ]);
+        return gambler;
+    } catch (err) {
+        throw new CustomError(CustomErrorType.DatabaseError,
+            'Error updating gambler: ' + gambler.id,
             err);
     }
 }

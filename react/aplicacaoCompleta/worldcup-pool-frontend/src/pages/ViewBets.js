@@ -4,7 +4,7 @@ function ViewBets() {
 
     const bets = [];
     for (let i = 0; i < 29; i++) {
-        bets.push({ gamblerName: 'Daniel ' + i, champion: 'Brasil', runnerUp: 'Estados Unidos da América' });
+        bets.push({ gamblerName: 'Daniel sobrenome comprido ' + i, champion: 'Brasil com um nome de país grande', runnerUp: 'Estados Unidos da América' });
     }
 
     const betRows = bets.map(e => <tr className="border-t border-slate-300 dark:border-slate-600 bg-slate-100 dark:bg-slate-800">

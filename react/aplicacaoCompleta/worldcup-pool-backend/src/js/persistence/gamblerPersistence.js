@@ -7,12 +7,12 @@ const INSERT_GAMBLER =
                  VALUES (UUID_TO_BIN(?),?,?,?,?)`;
 
 const SELECT_GAMBLER_BY_ID =
-    `SELECT BIN_TO_UUID(id) as id,name,email,phone,birth_date
+    `SELECT BIN_TO_UUID(id) as id,name,email,phone,DATE_FORMAT(birth_date,'%Y-%m-%d') as birth_date
             FROM gambler
             WHERE id=UUID_TO_BIN(?)`;
 
 const SELECT_GAMBLER_BY_EMAIL =
-    `SELECT BIN_TO_UUID(id) as id,name,email,phone,birth_date
+    `SELECT BIN_TO_UUID(id) as id,name,email,phone,DATE_FORMAT(birth_date,'%Y-%m-%d') as birth_date
             FROM gambler
             WHERE email=?`;
 

@@ -1,4 +1,4 @@
-export default function FormInput({ id, label, type, size }) {
+export default function FormInput({ id, value, label, type, size, onChange }) {
 
     let sizeClass = null;
     if (size === 'full') {
@@ -13,6 +13,6 @@ export default function FormInput({ id, label, type, size }) {
 
     return <div className={outerDivClasses}>
         <label htmlFor={id} className="mt-2 dark:text-white">{label}</label>
-        <input id={id} type={type} className="p-2 rounded bg-gray-200 dark:bg-slate-800 dark:text-white" />
+        <input value={value} onChange={onChange} id={id} type={type} className="p-2 rounded bg-gray-200 dark:bg-slate-800 dark:text-white" />
     </div>;
 }

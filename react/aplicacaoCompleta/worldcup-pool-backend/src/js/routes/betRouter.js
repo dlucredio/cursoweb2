@@ -1,5 +1,5 @@
 import express from 'express';
-import { createBet } from '../persistence/betPersistence.js';
+import { createBet, retrieveBetsForDisplay } from '../persistence/betPersistence.js';
 
 const router = express.Router();
 
@@ -14,6 +14,16 @@ router.put('/', async (req, res) => {
             console.log(err);
             res.status(500).send('Error creating bet');
         }
+    }
+});
+
+router.get('/', async (req, res) => {
+    try {
+        const allBets = await retrieveBetsForDisplay();
+        return res.json(allBets);
+    } catch(err) {
+        console.log(err);
+        res.status(500).send('Error retrieving bets');
     }
 });
 

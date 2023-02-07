@@ -18,8 +18,12 @@ PUT http://localhost:5000/bet
 Content-Type: application/json
 
 {
-    "champion": "Brasil",
-    "runner_up": "Argentina",
+    "champion": "Esoanha",
+    "runner_up": "Dinamarca",
     "gambler_id": "f039efc0-4ec4-407d-bc00-1200fcbefd47",
     "bet_date": "2023-02-02"
 }
+
+###
+
+GET http://localhost:5000/bet

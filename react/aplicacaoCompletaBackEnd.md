@@ -4,7 +4,7 @@ Para este exemplo, será utilizado o SGBD [MySql Community Server](https://dev.m
 
 ```
 mkdir worldcup-pool-backend
-cd bolaodacopa-backend
+cd worldcup-pool-backend
 npm init
 npm install express mysql2 uuid cors
 ```

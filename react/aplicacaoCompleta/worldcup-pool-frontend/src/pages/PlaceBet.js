@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { Button } from "../components/Button";
-import FormInput from "../components/FormInput";
+import { FormInput } from "../components/FormInput";
 import { MessageBanner } from "../components/MessageBanner";
 import { NavBar } from "../components/NavBar";
 import { formatDate } from '../utils/utils';

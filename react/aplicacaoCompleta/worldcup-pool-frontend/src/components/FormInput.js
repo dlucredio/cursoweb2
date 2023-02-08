@@ -1,4 +1,4 @@
-export default function FormInput({ id, value, label, type, size, onChange }) {
+export function FormInput({ id, value, label, type, size, onChange }) {
 
     let sizeClass = null;
     if (size === 'full') {

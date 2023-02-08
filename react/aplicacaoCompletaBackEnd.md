@@ -123,7 +123,7 @@ export async function closePool() {
 }
 ```
 
-9. Criar arquivo `src/js/utils.js`:
+9. Criar arquivo `src/js/utils/utils.js`:
 
 * Neste caso estamos criando uma classe auxiliar para encapsular os erros. Como se trata de um back-end simples, somente teremos erros de banco de dados, mas outros tipos de erros podem ser adicionados aqui.
 

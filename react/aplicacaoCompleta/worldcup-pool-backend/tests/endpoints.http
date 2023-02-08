@@ -13,15 +13,23 @@ PUT http://localhost:5000/gambler
 Content-Type: application/json
 
 {
-    "name": "Daniel 3",
+    "name": "Daniel",
     "email": "daniel@email.com",
-    "phone": "12345 3",
+    "phone": "12345",
     "birth_date": "1979-09-27"
 }
 
 ###
 
 GET http://localhost:5000/gambler?email=daniel@email.com
+
+###
+
+GET http://localhost:5000/gambler?email=paulo@email.com
+
+###
+
+GET http://localhost:5000/gambler?email=fulano@email.com
 
 ###
 

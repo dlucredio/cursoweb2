@@ -3,6 +3,9 @@ import { createBet, updateBet, retrieveBetsAndGamblers, retrieveBetsByGamblerId 
 
 const router = express.Router();
 
+// Save or update a bet.
+// If an id is provided, bet is updated (id and gambler_id will not be updated).
+// If no id is provided, bet is created (new id will be generated).
 router.put('/', async (req, res) => {
     try {
         if (req.body.id) {
@@ -22,6 +25,7 @@ router.put('/', async (req, res) => {
     }
 });
 
+// Retrieve a gambler by gambler_id (provided via query param)
 router.get('/', async (req, res) => {
     try {
         if (req.query.gambler_id) {

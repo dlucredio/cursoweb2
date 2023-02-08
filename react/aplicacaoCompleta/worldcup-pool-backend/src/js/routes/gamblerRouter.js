@@ -3,6 +3,9 @@ import { createGambler, updateGambler, retrieveGamblerByEmail } from '../persist
 
 const router = express.Router();
 
+// Save or update a gambler.
+// If an id is provided, gambler is updated (id and e-mail will not be updated).
+// If no id is provided, gambler is created (new id will be generated).
 router.put('/', async (req, res) => {
     try {
         if (req.body.id) {
@@ -19,6 +22,7 @@ router.put('/', async (req, res) => {
     }
 });
 
+// Retrieve a gambler by e-mail (provided via query param)
 router.get('/', async (req, res) => {
     try {
         const gambler = await retrieveGamblerByEmail(req.query.email);

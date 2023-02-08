@@ -1,3 +1,7 @@
+Neste exemplo faremos o front-end da aplicação, utilizando [React](https://reactjs.org/) e [TailwindCSS](https://tailwindcss.com/). Para compreender melhor o que iremos construir, primeiro confira o [design completo da interface](designInterfaceFrontend.md).
+
+Agora iremos construir a solução passo-a-passo. Se quiser testar antes, para ver a aplicação rodando, basta acessar [essa pasta do repositório](./aplicacaoCompleta/).
+
 
 
 

@@ -10,5 +10,6 @@ Neste momento, focaremos nos seguintes tópicos. No final há exercícios e exem
 * [Referencing Values with Refs](https://beta.reactjs.org/learn/referencing-values-with-refs)
 * [Manipulating the DOM with Refs](https://beta.reactjs.org/learn/manipulating-the-dom-with-refs)
 * [Synchronizing with Effects](https://beta.reactjs.org/learn/synchronizing-with-effects)
+* [Extracting State Logic into a Reducer](https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer)
 
 

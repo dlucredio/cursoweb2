@@ -97,8 +97,8 @@ app.listen(3000, function () {
 
     <script>
         if (typeof (EventSource) !== "undefined") {
-            var sourceTotalApostas = new EventSource("http://localhost:8080/BolaoDaCopaHTMLAPI/api/bolao/subscribeTotalApostas");
-            var sourceNovasApostas = new EventSource("http://localhost:8080/BolaoDaCopaHTMLAPI/api/bolao/subscribeNovasApostas");
+            var sourceTotalApostas = new EventSource("/subscribeTotalApostas");
+            var sourceNovasApostas = new EventSource("/subscribeNovasApostas");
             sourceNovasApostas.onmessage = function (event) {
                 document.getElementById("eventos").innerHTML += event.data + "<br>";
             };
@@ -259,7 +259,7 @@ app.listen(3000, function () {
         }
 
         function posicaoEncontrada(posicao) {
-            var url = "http://nominatim.openstreetmap.org/reverse?lat=" + posicao.coords.latitude + "&lon=" + posicao.coords.longitude + "&format=json&json_callback=mostrarCidade";
+            var url = "https://nominatim.openstreetmap.org/reverse?lat=" + posicao.coords.latitude + "&lon=" + posicao.coords.longitude + "&format=json&json_callback=mostrarCidade";
             var script = document.createElement('script');
             script.src = url;
             document.body.appendChild(script);

@@ -119,7 +119,7 @@ Depois de seguir os conceitos básicos, vamos construir uma aplicação que util
         }
 
         function showPosition(position) {
-            var url = "http://nominatim.openstreetmap.org/reverse?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&format=json&json_callback=showPositionInfo";
+            var url = "https://nominatim.openstreetmap.org/reverse?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&format=json&json_callback=showPositionInfo";
             var script = document.createElement('script');
             script.src = url;
             document.body.appendChild(script);

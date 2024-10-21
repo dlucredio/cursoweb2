@@ -224,7 +224,7 @@ html {
 +        <div class="footer grid-footer">
             <p>Resize the browser window to see how the content respond to the resizing.</p>
         </div>
-    </div>
++    </div>
 </body>
 
 </html>

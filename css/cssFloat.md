@@ -286,7 +286,7 @@ html {
 </html>
 ```
 
-6. Agora vamos fazer um tamanho intermediário de tela. Adicionar as seguintes classes ao arquivo `styleFloat.css`:
+6. Agora vamos fazer um tamanho intermediário de tela. Adicionar as seguintes classes ao arquivo `styleFloat.css` (a ordem é importante! Deve vir antes das classes para tela desktop):
 
 ```css
 @media only screen and (min-width: 600px) {

@@ -68,7 +68,7 @@ module.exports = {
 ```
 7. Execute o comando `npm run tailwind-watch`
 8. Abra o arquivo `index.html` no navegador. Se estiver usando o VSCode, considere executar a extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para facilitar a atualização.
-9. Veja como o texto "Hello world!" está sendo exibido em tamanho grande, negrito e sublinhado, conforme as classes do elemento `h1`. Quaisquer mudanças feitas no código são imediatamente atualizadas no navegador.
+9. Veja como o texto "Hello world!" está sendo exibido em tamanho grande, negrito e sublinhado, conforme as classes do elemento `h1`. Quaisquer mudanças feitas no código são imediatamente atualizadas no navegador (pode ser necessário dar um refresh, devido ao processo de recompilação do CSS e integração com o Live Server).
 10. Conceitos principais:
 * [Utility-first Fundamentals](https://tailwindcss.com/docs/utility-first)
 * [Hover, Focus and Other States](https://tailwindcss.com/docs/hover-focus-and-other-states)

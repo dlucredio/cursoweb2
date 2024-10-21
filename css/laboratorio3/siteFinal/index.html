@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Laboratório</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="tailwindOutput.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script>
+        function showMenu() {
+            backMenu = document.getElementById("back-menu");
+            backMenu.classList.remove('hidden');
+            backMenu.offsetHeight; // hack para fazer o browser disparar a animação
+            backMenu.classList.add("opacity-50");
+            if (backMenu.classList.contains("w-0")) {
+                backMenu.classList.add("w-0");
+            }
+            if (!backMenu.classList.contains("w-full")) {
+                backMenu.classList.add("w-full");
+            }
+
+            frontMenu = document.getElementById("front-menu");
+            frontMenu.classList.remove("opacity-0");
+            frontMenu.classList.add("opacity-100");
+            frontMenu.classList.remove("-left-80");
+            frontMenu.classList.add("left-0");
+        }
+
+        function hideMenu() {
+            backMenu = document.getElementById("back-menu");
+            if (backMenu.classList.contains("opacity-50")) {
+                backMenu.classList.remove("opacity-50")
+            }
+            if (!backMenu.classList.contains("opacity-0")) {
+                backMenu.classList.add("opacity-0")
+            }
+            backMenu.addEventListener('transitionend', () => {
+                backMenu.classList.add('hidden');
+            }, { once: true });
+
+            frontMenu = document.getElementById("front-menu");
+            frontMenu.classList.remove("opacity-100");
+            frontMenu.classList.add("opacity-0");
+            frontMenu.classList.remove("left-0");
+            frontMenu.classList.add("-left-80");
+        }
+    </script>
+</head>
+
+<body class="w-full flex flex-col">
+    <!-- Menu -->
+    <div id="back-menu" onclick="hideMenu()"
+        class="hidden fixed left-0 top-0 w-full h-dvh bg-black opacity-0 transition-all duration-500 lg:opacity-0 lg:w-0">
+    </div>
+    <div id="front-menu"
+        class="fixed -left-80 top-0 pt-12 h-dvh bg-white flex-col w-80 opacity-0 overflow-auto transition-all duration-500 lg:opacity-100 lg:left-0">
+        <div class="px-4 py-8 flex flex-row border-b border-gray-200">
+            <div class="w-12 h-12 bg-[url('images/avatar2.png')] bg-center bg-cover rounded-full"></div>
+            <div class="flex flex-col ml-8 text-sm">
+                <div>Welcome, <span class="font-bold">Mike</span></div>
+                <div class="flex flex-row">
+                    <div class="px-4 py-2 hover:bg-gray-200 select-none cursor-pointer">
+                        <span class="material-icons !text-base">mail</span>
+                    </div>
+                    <div class="px-4 py-2 hover:bg-gray-200 select-none cursor-pointer">
+                        <span class="material-icons !text-base">person</span>
+                    </div>
+                    <div class="px-4 py-2 hover:bg-gray-200 select-none cursor-pointer">
+                        <span class="material-icons !text-base">settings</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-4 mt-4">
+            <span class="text-xl">Dashboard</span>
+        </div>
+        <div onclick="hideMenu()"
+            class="p-4 bg-gray-600 text-sm text-white flex flex-row items-center gap-x-2 select-none cursor-pointer hover:bg-black lg:hidden">
+            <span class="material-icons">close</span>
+            <span class="">Close Menu</span>
+        </div>
+        <div
+            class="px-4 py-1.5 bg-blue-500 text-sm text-white flex flex-row items-center gap-x-2 select-none cursor-pointer hover:bg-gray-300 hover:text-black">
+            <span class="material-icons">people</span>
+            <span class="">Overview</span>
+        </div>
+        <div
+            class="px-4 py-1.5 text-sm text-black flex flex-row items-center gap-x-2 select-none cursor-pointer hover:bg-gray-300">
+            <span class="material-icons">visibility</span>
+            <span class="">Views</span>
+        </div>
+        <div
+            class="px-4 py-1.5 text-sm text-black flex flex-row items-center gap-x-2 select-none cursor-pointer hover:bg-gray-300">
+            <span class="material-icons">people</span>
+            <span class="">Traffic</span>
+        </div>
+        <div
+            class="px-4 py-1.5 text-sm text-black flex flex-row items-center gap-x-2 select-none cursor-pointer hover:bg-gray-300">
+            <span class="material-icons">my_location</span>
+            <span class="">Geo</span>
+        </div>
+        <div
+            class="px-4 py-1.5 text-sm text-black flex flex-row items-center gap-x-2 select-none cursor-pointer hover:bg-gray-300">
+            <span class="material-icons">diamond</span>
+            <span class="">Orders</span>
+        </div>
+        <div
+            class="px-4 py-1.5 text-sm text-black flex flex-row items-center gap-x-2 select-none cursor-pointer hover:bg-gray-300">
+            <span class="material-icons">notifications</span>
+            <span class="">News</span>
+        </div>
+        <div
+            class="px-4 py-1.5 text-sm text-black flex flex-row items-center gap-x-2 select-none cursor-pointer hover:bg-gray-300">
+            <span class="material-icons">home</span>
+            <span class="">General</span>
+        </div>
+        <div
+            class="px-4 py-1.5 text-sm text-black flex flex-row items-center gap-x-2 select-none cursor-pointer hover:bg-gray-300">
+            <span class="material-icons">history</span>
+            <span class="">History</span>
+        </div>
+        <div
+            class="px-4 py-1.5 text-sm text-black flex flex-row items-center gap-x-2 select-none cursor-pointer hover:bg-gray-300">
+            <span class="material-icons">settings</span>
+            <span class="">Settings</span>
+        </div>
+    </div>
+
+    <!-- Barra de navegação -->
+    <div
+        class="fixed left-0 top-0 z-20 p-4 w-full h-12 bg-black flex flex-row-reverse items-center justify-between text-lg">
+        <div class="text-white">Logo</div>
+        <div onclick="showMenu()"
+            class="text-white flex flex-row items-center gap-x-2 hover:text-green-600 select-none cursor-pointer lg:hidden">
+            <i class="material-icons">menu</i>
+            Menu
+        </div>
+    </div>
+
+    <!-- Conteúdo -->
+
+    <div class="pt-20 w-full flex flex-col bg-gray-200 lg:pl-80 transition-all duration-500">
+        <div class="w-full p-4">
+            <div class="text-lg flex flex-row items-center gap-x-2">
+                <span class="material-icons">speed</span>
+                <span class="font-bold">My Dashboard</span>
+            </div>
+            <div class="w-full flex flex-col md:flex-row md:gap-x-4">
+                <div class="w-full bg-red-700 text-white flex flex-col px-4 py-6 text-2xl">
+                    <div class="w-full flex flex-row justify-between">
+                        <div><span class="material-icons !text-5xl">chat_bubble</span></div>
+                        <div>52</div>
+                    </div>
+                    <div>Messages</div>
+                </div>
+                <div class="w-full bg-blue-500 text-white flex flex-col px-4 py-6 text-2xl">
+                    <div class="w-full flex flex-row justify-between">
+                        <div><span class="material-icons !text-5xl">visibility</span></div>
+                        <div>99</div>
+                    </div>
+                    <div>Views</div>
+                </div>
+                <div class="w-full bg-green-700 text-white flex flex-col px-4 py-6 text-2xl">
+                    <div class="w-full flex flex-row justify-between">
+                        <div><span class="material-icons !text-5xl">share</span></div>
+                        <div>23</div>
+                    </div>
+                    <div>Shares</div>
+                </div>
+                <div class="w-full bg-orange-500 text-white flex flex-col px-4 py-6 text-2xl">
+                    <div class="w-full flex flex-row justify-between">
+                        <div><span class="material-icons !text-5xl">people</span></div>
+                        <div>50</div>
+                    </div>
+                    <div>Users</div>
+                </div>
+            </div>
+            <div class="w-full flex flex-col md:flex-row md:gap-x-4">
+                <div class="flex flex-col w-full md:w-1/3">
+                    <div class="mt-12">
+                        <div class="mb-4">Regions</div>
+                        <img class="w-full" src="images/region.jpg" />
+                    </div>
+                </div>
+                <div class="flex flex-col w-full md:w-2/3">
+
+                    <div class="w-full mt-12 flex flex-col">
+                        <div class="mb-4">Feeds</div>
+                        <div class="w-full bg-white flex flex-row items-center py-1 px-3 gap-x-12 text-sm">
+                            <div><span class="material-icons text-blue-600 !text-lg">person</span></div>
+                            <div class="flex-grow">New record, over 90 views.</div>
+                            <div class="italic">10 mins</div>
+                        </div>
+                        <div class="w-full flex flex-row items-center py-1 px-3 gap-x-12 text-sm">
+                            <div><span class="material-icons text-red-500 !text-lg">notifications</span></div>
+                            <div class="flex-grow">Database error.</div>
+                            <div class="italic">15 mins</div>
+                        </div>
+                        <div class="w-full bg-white flex flex-row items-center py-1 px-3 gap-x-12 text-sm">
+                            <div><span class="material-icons text-lime-600 !text-lg">people</span></div>
+                            <div class="flex-grow">New record, over 90 views.</div>
+                            <div class="italic">17 mins</div>
+                        </div>
+                        <div class="w-full flex flex-row items-center py-1 px-3 gap-x-12 text-sm">
+                            <div><span class="material-icons text-red-500 !text-lg">chat_bubble</span></div>
+                            <div class="flex-grow">New comments.</div>
+                            <div class="italic">25 mins</div>
+                        </div>
+                        <div class="w-full bg-white flex flex-row items-center py-1 px-3 gap-x-12 text-sm">
+                            <div><span class="material-icons text-blue-600 !text-lg">flag</span></div>
+                            <div class="flex-grow">Check transactions.</div>
+                            <div class="italic">28 mins</div>
+                        </div>
+                        <div class="w-full flex flex-row items-center py-1 px-3 gap-x-12 text-sm">
+                            <div><span class="material-icons text-red-500 !text-lg">computer</span></div>
+                            <div class="flex-grow">CPU overload.</div>
+                            <div class="italic">35 mins</div>
+                        </div>
+                        <div class="w-full bg-white flex flex-row items-center py-1 px-3 gap-x-12 text-sm">
+                            <div><span class="material-icons text-green-700 !text-lg">share</span></div>
+                            <div class="flex-grow">New shares.</div>
+                            <div class="italic">39 mins</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full mt-12 flex flex-col">
+                <div class="mb-4">General stats</div>
+                <div class="mb-4 text-sm">New Visitors</div>
+                <div class="w-full flex flex-row h-12 mb-4">
+                    <div class="w-1/4 bg-green-700 text-white flex flex-row items-center justify-center">
+                        <div>+25%</div>
+                    </div>
+                    <div class="w-3/4 bg-gray-400">
+                    </div>
+                </div>
+                <div class="mb-4 text-sm">New Users</div>
+                <div class="w-full flex flex-row h-12 mb-4">
+                    <div class="w-1/2 bg-orange-400 text-black flex flex-row items-center justify-center">
+                        <div>50%</div>
+                    </div>
+                    <div class="w-1/2 bg-gray-400">
+                    </div>
+                </div>
+                <div class="mb-4 text-sm">Bounce Rate</div>
+                <div class="w-full flex flex-row h-12 mb-4">
+                    <div class="w-3/4 bg-red-600 text-white flex flex-row items-center justify-center">
+                        <div>75%</div>
+                    </div>
+                    <div class="w-1/4 bg-gray-400">
+                    </div>
+                </div>
+            </div>
+            <div class="w-full mt-12 flex flex-col">
+                <div class="mb-4">Countries</div>
+                <div class="w-full border border-gray-300 flex flex-col">
+                    <div
+                        class="flex flex-row px-3 py-2 bg-white border-b border-gray-300 justify-between items-center hover:bg-gray-300">
+                        <div class="w-3/4">United States</div>
+                        <div class="w-1/4">65%</div>
+                    </div>
+                    <div
+                        class="flex flex-row px-3 py-2 border-b border-gray-300 justify-between items-center hover:bg-gray-300">
+                        <div class="w-3/4">UK</div>
+                        <div class="w-1/4">15.7%</div>
+                    </div>
+                    <div
+                        class="flex flex-row px-3 py-2 bg-white border-b border-gray-300 justify-between items-center hover:bg-gray-300">
+                        <div class="w-3/4">Russia</div>
+                        <div class="w-1/4">5.6%</div>
+                    </div>
+                    <div
+                        class="flex flex-row px-3 py-2 border-b border-gray-300 justify-between items-center hover:bg-gray-300">
+                        <div class="w-3/4">Spain</div>
+                        <div class="w-1/4">2.1%</div>
+                    </div>
+                    <div
+                        class="flex flex-row px-3 py-2 bg-white border-b border-gray-300 justify-between items-center hover:bg-gray-300">
+                        <div class="w-3/4">India</div>
+                        <div class="w-1/4">1.9%</div>
+                    </div>
+                    <div
+                        class="flex flex-row px-3 py-2 border-b border-gray-300 justify-between items-center hover:bg-gray-300">
+                        <div class="w-3/4">France</div>
+                        <div class="w-1/4">1.5%</div>
+                    </div>
+                </div>
+            </div>
+            <button
+                class="mt-8 px-4 py-2 bg-gray-700 text-white select-none cursor-pointer hover:bg-gray-400 hover:text-black flex flex-row items-center gap-x-2">
+                More Countries <span class="material-icons">arrow_forward</span></button>
+            <div class="w-full mt-12 flex flex-col">
+                <div class="mb-4">Recent Users</div>
+                <div class="shadow-lg shadow-gray-600 w-full bg-white flex flex-col">
+                    <div class="flex flex-row items-center p-4 gap-x-4 border-b border-gray-300">
+                        <img class="w-10 h-10 rounded-full" src="images/avatar2.png" />
+                        <div class="text-3xl">Mike</div>
+                    </div>
+                    <div class="flex flex-row items-center p-4 gap-x-4 border-b border-gray-300">
+                        <img class="w-10 h-10 rounded-full" src="images/avatar5.png" />
+                        <div class="text-3xl">Jill</div>
+                    </div>
+                    <div class="flex flex-row items-center p-4 gap-x-4 border-b border-gray-300">
+                        <img class="w-10 h-10 rounded-full" src="images/avatar6.png" />
+                        <div class="text-3xl">Jane</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full mt-12 flex flex-col">
+                <div class="mb-4">Recent Comments</div>
+                <img class="w-24 h-24 rounded-full" src="images/avatar3.png" />
+                <div class="p-3 mb-8">
+                    <span class="text-2xl">John</span>
+                    <span class="text-gray-400">Sep 29,2014, 9:12 PM</span>
+                    <div class="mt-4 text-sm">
+                        <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+                <img class="w-24 h-24 rounded-full" src="images/avatar1.png" />
+                <div class="p-3">
+                    <span class="text-2xl">Bo</span>
+                    <span class="text-gray-400">Sep 28,2014, 10:15 PM</span>
+                    <div class="mt-4 text-sm">
+                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full px-8 pt-12 pb-4 bg-gray-600 text-white flex flex-col md:flex-row md:justify-start md:items-start md:gap-x-4">
+            <div class="w-full mb-8">
+                <div class="text-lg">Demographic</div>
+                <div class="h-1 w-full bg-green-500"></div>
+                <div class="text-sm mt-4">Language</div>
+                <div class="text-sm mt-4">Country</div>
+                <div class="text-sm mt-4">City</div>
+            </div>
+            <div class="w-full mb-8">
+                <div class="text-lg">System</div>
+                <div class="h-1 w-full bg-red-500"></div>
+                <div class="text-sm mt-4">Browser</div>
+                <div class="text-sm mt-4">OS</div>
+                <div class="text-sm mt-4">More</div>
+            </div>
+            <div class="w-full mb-8">
+                <div class="text-lg">Target</div>
+                <div class="h-1 w-full bg-orange-400"></div>
+                <div class="text-sm mt-4">Users</div>
+                <div class="text-sm mt-4">Active</div>
+                <div class="text-sm mt-4">Geo</div>
+                <div class="text-sm mt-4">Interests</div>
+            </div>
+        </div>
+        <div class="w-full px-8 py-12 flex flex-col gap-y-4">
+            <div class="text-lg">FOOTER</div>
+            <div>Layout copied from <a class="underline hover:text-blue-700 cursor-pointer"
+                    href="https://www.w3schools.com/w3css/tryw3css_templates_analytics.htm#">w3schools.com</a></div>
+            <div>Powered by <a class="underline hover:text-blue-700 cursor-pointer"
+                    href="https://tailwindcss.com">tailwindcss</a></div>
+
+        </div>
+    </div>
+</body>
+
+</html>

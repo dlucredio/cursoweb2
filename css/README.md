@@ -55,10 +55,12 @@ Conteúdo do tutorial CSS
         * [https://medium.com/swlh/css-units-which-ones-to-use-and-avoid-31e4ed461f9](https://medium.com/swlh/css-units-which-ones-to-use-and-avoid-31e4ed461f9)
 
 * CSS Advanced: não é necessário estudar neste momento, pois são assuntos bem específicos. Mas é bom olhar seu conteúdo para saber onde procurar depois, EXCETO:
+    * CSS Box Sizing
     * CSS Media Queries
+        * Pular a parte de exemplo com flexbox
     * CSS Flexbox
         * Uma explicação sobre grow/shrink/basis [aqui](https://css-tricks.com/understanding-flex-grow-flex-shrink-and-flex-basis/)
-* CSS Responsive: basta seguir o site
+* CSS Responsive: vamos pular neste momento
 * CSS Grid: basta seguir o site
     * Alternativamente, o [site do Firefox sobre CSS Grid](https://mozilladevelopers.github.io/playground/css-grid) é muito bom também
 
@@ -78,3 +80,9 @@ Por fim, é interessante estudar algum framework moderno para CSS, como o tailwi
 
 * [Sass](sass.md)
 * [Tailwind CSS](tailwind.md)
+
+<hr/>
+
+Alguns exercícios para fixação de conceitos.
+
+* [Exercícios](exercicios.md)

@@ -4,7 +4,7 @@ Como exercício, tente reproduzir [esta página de dashboard do W3Schools](https
 
 Solução usando TailwindCSS:
 
-[Demo da solução com tailwind](https://htmlpreview.github.io/?https://github.com/dlucredio/cursoguiresponsiva/blob/main/laboratorio3/siteFinal/index.html)
+[Demo da solução com tailwind](https://htmlpreview.github.io/?https://github.com/dlucredio/cursoweb2/blob/main/css/laboratorio3/siteFinal/index.html)
 
 Código-fonte:
 

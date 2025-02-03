@@ -5,9 +5,10 @@ Aqui vamos refazer os mesmos exemplos [feitos anteriormente, com classes](./exem
 2. Abrir o terminal, criar uma pasta e executar o seguinte comando:
 
 ```sh
-npx create-react-app alo-mundo-react-func
+npm create vite@latest alo-mundo-react-func -- --template react
 cd alo-mundo-react-func
-npm start
+npm install
+npm run dev
 ```
 
 3. Será exibida uma janela do browser com a página criada

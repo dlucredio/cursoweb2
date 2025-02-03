@@ -5,7 +5,10 @@ Agora iremos construir a solução passo-a-passo. Se quiser testar antes, para v
 1. O primeiro passo é criar um projeto React, com o comando:
 
 ```
-npx create-react-app worldcup-pool-frontend
+npm create vite@latest worldcup-pool-frontend -- --template react
+cd worldcup-pool-frontend
+npm install
+npm run dev
 ```
 
 2. Em seguida, podemos instalar o TailwindCSS, seguindo [as instruções na página oficial do vite](https://tailwindcss.com/docs/installation/using-vite).
@@ -33,10 +36,9 @@ module.exports = {
 3. Vamos começar limpando o projeto. Apagar tudo da pasta `src` e deixar somente os seguintes arquivos:
 
 ```
-App.js
+App.jsx
 index.css
-index.js
-reportWebVitals.js
+main.jsx
 ```
 
 4. Agora vamos instalar uma fonte customizada. Se não quiser aprender o processo todo, basta copiar o código abaixo e pular para o passo 9. Se quiser aprender a instalar outras fontes, veja as instruções detalhadas nos passos 5 a 8:
@@ -113,15 +115,14 @@ worldcup-pool-frontend
 |   +-- components          (componentes reutilizáveis react)
 |   +-- pages               (páginas da aplicação)
 |   +-- utils               (funções auxiliares)
-|   +-- App.js              (código principal)
+|   +-- App.jsx              (código principal)
 |   +-- index.css           (CSS principal. Já mexemos nele até agora, não mexeremos mais)
-|   +-- index.js            (código inicial do React. Não mexeremos nele)
-|   +-- reportWebVitals.js  (código inicial do React. Não mexeremos nele)
+|   +-- main.jsx            (código inicial do React. Não mexeremos nele)
 +-- (outros arquivos: package.json, .gitignore, etc)
 ```
 
 15. Vamos começar criando a navegação principal do aplicativo.
-16. Criar o arquivo `src/pages/Layout.js`:
+16. Criar o arquivo `src/pages/Layout.jsx`:
 
 * Note o código comentado. Você pode, posteriormente, trocar seu conteúdo com o da linha anterior para forçar o modo noturno.
 
@@ -140,7 +141,7 @@ const Layout = () => {
 export default Layout;
 ```
 
-17. Criar o arquivo `src/pages/Home.js`:
+17. Criar o arquivo `src/pages/Home.jsx`:
 
 ```js
 function Home() {
@@ -154,7 +155,7 @@ function Home() {
 export default Home;
 ```
 
-18. Criar o arquivo `src/pages/PlaceBet.js`:
+18. Criar o arquivo `src/pages/PlaceBet.jsx`:
 
 ```js
 function PlaceBet() {
@@ -168,7 +169,7 @@ function PlaceBet() {
 export default PlaceBet;
 ```
 
-19. Criar o arquivo `src/pages/ViewBets.js`:
+19. Criar o arquivo `src/pages/ViewBets.jsx`:
 
 ```js
 function ViewBets() {
@@ -182,7 +183,7 @@ function ViewBets() {
 export default ViewBets;
 ```
 
-20. Substituir o conteúdo do arquivo `src/App.js` pelo seguinte:
+20. Substituir o conteúdo do arquivo `src/App.jsx` pelo seguinte:
 
 ```js
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -220,7 +221,7 @@ export default App;
 * `http://localhost:3000/viewBets` - Página para ver as apostas
 
 23. Vamos começar construindo alguns componentes reutilizáveis.
-24. Criar arquivo `src/components/Button.js`:
+24. Criar arquivo `src/components/Button.jsx`:
 
 ```js
 import { Link } from "react-router-dom";
@@ -251,7 +252,7 @@ export function Button({label, color, link, action}) {
 }
 ```
 
-25. Criar arquivo `src/components/FormInput.js`:
+25. Criar arquivo `src/components/FormInput.jsx`:
 
 ```js
 export function FormInput({ id, value, label, type, size, onChange }) {
@@ -274,7 +275,7 @@ export function FormInput({ id, value, label, type, size, onChange }) {
 }
 ```
 
-26. Criar arquivo `src/components/MessageBanner.js`:
+26. Criar arquivo `src/components/MessageBanner.jsx`:
 
 ```js
 export function MessageBanner({ content, type }) {
@@ -298,7 +299,7 @@ export function MessageBanner({ content, type }) {
 }
 ```
 
-27. Criar arquivo `src/components/NavBar.js`:
+27. Criar arquivo `src/components/NavBar.jsx`:
 
 ```js
 import { Link } from "react-router-dom";
@@ -335,7 +336,7 @@ export function NavBar() {
 
 28. Experimente usar esses componentes para ver como eles funcionam
 29. Também vamos precisar de uma função auxiliar. Ainda que seja uma só, vamos criar um arquivo para guardar essa e outras que possam surgir.
-30. Criar arquivo `src/utils/utils.js`:
+30. Criar arquivo `src/utils/utils.jsx`:
 
 ```js
 export function formatDate(date) {
@@ -346,7 +347,7 @@ export function formatDate(date) {
 ```
 
 31. Agora já podemos começar a construir as páginas.
-32. Substituir o conteúdo do arquivo `src/pages/Home.js`:
+32. Substituir o conteúdo do arquivo `src/pages/Home.jsx`:
 
 ```js
 import { Button } from "../components/Button";
@@ -369,7 +370,7 @@ function Home() {
 export default Home;
 ```
 
-33. Substituir o conteúdo do arquivo `src/pages/PlaceBet.js`:
+33. Substituir o conteúdo do arquivo `src/pages/PlaceBet.jsx`:
 
 ```js
 import { Button } from "../components/Button";
@@ -425,7 +426,7 @@ function PlaceBet() {
 export default PlaceBet;
 ```
 
-34. Substituir o conteúdo do arquivo `src/pages/ViewBets.js`:
+34. Substituir o conteúdo do arquivo `src/pages/ViewBets.jsx`:
 
 ```js
 import { NavBar } from "../components/NavBar";
@@ -505,7 +506,7 @@ export default ViewBets;
 ```
 
 35. Agora vamos implementar a lógica das telas.
-36. Modificar o arquivo `src/pages/PlaceBet.js`:
+36. Modificar o arquivo `src/pages/PlaceBet.jsx`:
 
 ```diff
 +import { useState } from 'react';
@@ -675,7 +676,7 @@ function PlaceBet() {
 export default PlaceBet;
 ```
 
-37. Modificar o arquivo `src/pages/ViewBets.js`:
+37. Modificar o arquivo `src/pages/ViewBets.jsx`:
 
 ```diff
 +import { useEffect, useState } from "react";

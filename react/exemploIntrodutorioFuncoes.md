@@ -11,7 +11,7 @@ npm start
 ```
 
 3. Será exibida uma janela do browser com a página criada
-4. Abrir o arquivo `src/App.js` e modificar seu conteúdo para incluir um estado e alguns componentes. O código orientado a objetos era assim:
+4. Abrir o arquivo `src/App.jsx` e modificar seu conteúdo para incluir um estado e alguns componentes. O código orientado a objetos era assim:
 
 ```jsx
 import React, { Component } from 'react';
@@ -131,7 +131,7 @@ export default App;
 ```
 
 9. Agora vamos criar componentes
-10. Criar novo arquivo `src/Painel.js`. Orientado a objetos, era assim:
+10. Criar novo arquivo `src/Painel.jsx`. Orientado a objetos, era assim:
 
 ```jsx
 import React from 'react';
@@ -212,7 +212,7 @@ export default Painel;
 export default Painel;
 ```
 
-12. Modificar o arquivo App.js para incluir o painel
+12. Modificar o arquivo App.jsx para incluir o painel
 
 ```diff
 import { useState } from 'react';
@@ -254,7 +254,7 @@ export default App;
 
 13. Testar
 14. Agora vamos adicionar elementos à lista dinamicamente
-15. Modificar o arquivo `App.js` para conter o estado da aplicação
+15. Modificar o arquivo `App.jsx` para conter o estado da aplicação
 
 ```diff
 import { useState } from 'react';
@@ -322,7 +322,7 @@ function App() {
 export default App;
 ```
 
-16. Modificar o arquivo Painel.js para receber a lista via propriedades
+16. Modificar o arquivo Painel.jsx para receber a lista via propriedades
 
 ```diff
 -import { useState } from 'react';
@@ -354,7 +354,7 @@ export default Painel;
 
 17. Testar e ver que agora o estado é mantido em um único local. Abrir o console do navegador para ver a mensagem de erro. Notar que não é recomendável haver dois componentes com a mesma chave (particularidade do React)
 18. Agora vamos modificar o estado do pai a partir de um componente filho
-19. Modificar o arquivo `Painel.js` para incluir um botão para remover elementos da lista, com evento vinculado a um prop
+19. Modificar o arquivo `Painel.jsx` para incluir um botão para remover elementos da lista, com evento vinculado a um prop
 
 ```diff
 import { useState } from 'react';
@@ -379,7 +379,7 @@ import { useState } from 'react';
 export default Painel;
 ```
 
-20. Modificar o arquivo App.js para tratar o evento gerado no filho
+20. Modificar o arquivo App.jsx para tratar o evento gerado no filho
 
 ```diff
 import { useState } from 'react';
@@ -441,7 +441,7 @@ export default App;
 
 21. Testar
 22. Agora vamos validar a entrada, para proibir elementos repetidos
-23. Modificar o arquivo `App.js` para incluir a validação. Vamos usar um _effect_:
+23. Modificar o arquivo `App.jsx` para incluir a validação. Vamos usar um _effect_:
 
 ```diff
 +import { useState, useEffect } from 'react';

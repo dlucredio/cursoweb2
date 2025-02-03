@@ -1,16 +1,16 @@
 1. Instalar node.js (https://nodejs.org/)
-    1.1. Instalar uma extensão para React (ex: React Developer Tools by Facebook para Chrome)
 2. Abrir o terminal, criar uma pasta e executar o seguinte comando:
 
 ```sh
-npx create-react-app alo-mundo-react
+npm create vite@latest alo-mundo-react -- --template react
 
 cd alo-mundo-react
-npm start
+npm install
+npm run dev
 ```
 
 3. Será exibida uma janela do browser com a página criada
-4. Abrir o arquivo `src/App.js` e modificar seu conteúdo para incluir um estado e alguns componentes. Primeiro veremos no estilo orientado a objetos.
+4. Abrir o arquivo `src/App.jsx` e modificar seu conteúdo para incluir um estado e alguns componentes. Primeiro veremos no estilo orientado a objetos.
 
 ```jsx
 import React, { Component } from 'react';
@@ -41,7 +41,7 @@ class App extends Component {
 export default App;
 ```
 
-5. Testar
+5. Mova o arquivo `src/assets/react.svg` para `src/logo.svg` e testar
 6. Incluir eventos de alteração do estado. Modificar o código:
 
 ```diff
@@ -103,7 +103,7 @@ export default App;
 ```
 
 9. Agora vamos criar componentes
-10. Criar novo arquivo `src/Painel.js`
+10. Criar novo arquivo `src/Painel.jsx`
 
 ```jsx
 import React from 'react';
@@ -139,7 +139,7 @@ class Painel extends React.Component {
 export default Painel;
 ```
 
-11. Modificar o arquivo App.js para incluir o painel
+11. Modificar o arquivo App.jsx para incluir o painel
 
 ```diff
 import React, { Component } from 'react';
@@ -188,7 +188,7 @@ export default App;
 
 12. Testar
 13. Agora vamos adicionar elementos à lista dinamicamente
-14. Modificar o arquivo `App.js` para conter o estado da aplicação
+14. Modificar o arquivo `App.jsx` para conter o estado da aplicação
 
 ```diff
 import React, { Component } from 'react';
@@ -247,7 +247,7 @@ class App extends Component {
 export default App;
 ```
 
-15. Modificar o arquivo Painel.js para receber a lista via propriedades
+15. Modificar o arquivo `Painel.jsx` para receber a lista via propriedades
 
 ```diff
 import React from 'react';
@@ -274,7 +274,7 @@ export default Painel;
 
 16. Testar e ver que agora o estado é mantido em um único local. Abrir o console do navegador para ver a mensagem de erro. Notar que não é recomendável haver dois componentes com a mesma chave (particularidade do React)
 17. Agora vamos modificar o estado do pai a partir de um componente filho
-18. Modificar o arquivo `Painel.js` para incluir um botão para remover elementos da lista, com evento vinculado a um prop
+18. Modificar o arquivo `Painel.jsx` para incluir um botão para remover elementos da lista, com evento vinculado a um prop
 
 ```diff
 import React from 'react';
@@ -303,7 +303,7 @@ class Painel extends React.Component {
 export default Painel;
 ```
 
-19. Modificar o arquivo App.js para tratar o evento gerado no filho
+19. Modificar o arquivo `App.jsx` para tratar o evento gerado no filho
 
 ```diff
 import React, { Component } from 'react';
@@ -376,7 +376,7 @@ export default App;
 
 20. Testar
 21. Agora vamos validar a entrada, para proibir elementos repetidos
-22. Modificar o arquivo `App.js` para incluir a validação
+22. Modificar o arquivo `App.jsx` para incluir a validação
 
 ```diff
 import React, { Component } from 'react';

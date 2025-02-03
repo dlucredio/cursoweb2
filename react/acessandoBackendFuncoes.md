@@ -1,7 +1,7 @@
 1. Abrir o [exemplo anterior](./acessandoBackendClasses.md) e recriar o back-end (não se esqueça de habilitar CORS).
 2. Abrir o [exemplo anterior usando funções](./exemploIntrodutorioFuncoes.md). O código original era assim:
 
-- `src/App.js`:
+- `src/App.jsx`:
 
 ```jsx
 import { useState } from 'react';
@@ -55,7 +55,7 @@ function App() {
 export default App;
 ```
 
-- `src/Painel.js`:
+- `src/Painel.jsx`:
 
 ```jsx
 function Painel({ lista, removerElemento }) {
@@ -78,7 +78,7 @@ function Painel({ lista, removerElemento }) {
 export default Painel;
 ```
 
-3. Modificar o código de `src/App.js` para sempre buscar a lista do back-end (pode criar uma cópia do arquivo caso não queira perder o conteúdo original)
+3. Modificar o código de `src/App.jsx` para sempre buscar a lista do back-end (pode criar uma cópia do arquivo caso não queira perder o conteúdo original)
 
 ```diff
 +import { useState, useEffect } from 'react';

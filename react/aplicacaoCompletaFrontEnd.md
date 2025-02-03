@@ -8,7 +8,7 @@ Agora iremos construir a solução passo-a-passo. Se quiser testar antes, para v
 npx create-react-app worldcup-pool-frontend
 ```
 
-2. Em seguida, podemos instalar o TailwindCSS, seguindo [as instruções na página oficial](https://tailwindcss.com/docs/guides/create-react-app).
+2. Em seguida, podemos instalar o TailwindCSS, seguindo [as instruções na página oficial do vite](https://tailwindcss.com/docs/installation/using-vite).
 
 * Ao término da configuração, adicione uma configuração para definir o tema claro/escuro com base em classe. Modifique o arquivo `tailwind.config.js`:
 

@@ -9,4 +9,5 @@ Em seguida, você pode olhar os seguintes exemplos:
 * [Conceitos de hooks](./conceitosHooks.md)
 * [Exemplo introdutório usando funcoes](./exemploIntrodutorioFuncoes.md)
 * [Acessando o back-end usando funcoes](./acessandoBackendFuncoes.md)
+* [Usando Context + Reducer](./usandoContextReducer.md)
 * [Aplicação completa front-end + back-end](./aplicacaoCompleta.md)

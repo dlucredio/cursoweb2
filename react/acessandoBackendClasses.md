@@ -118,7 +118,7 @@ DELETE http://localhost:5000/cor/azul
 ```
 
 7. Abrir o exemplo da [demonstração anterior](./exemploIntrodutorioClasses.md)
-8. Modificar o código de `src/app.js` para sempre buscar a lista do back-end (pode criar uma cópia do arquivo caso não queira perder o conteúdo original)
+8. Modificar o código de `src/App.jsx` para sempre buscar a lista do back-end (pode criar uma cópia do arquivo caso não queira perder o conteúdo original)
 
 ```diff
 import React, { Component } from 'react';
@@ -246,7 +246,7 @@ export default App;
 `npm run build`
 
 11. Será gerada uma pasta `build`. Copiar seu conteúdo para dentro de uma pasta `public` do projeto do back-end (sem incluir a pasta `build`)
-12. Modificar o arquivo `src/app.js` do projeto do back-end (desabilitar CORS e utilizar a pasta `public` como hospedagem de arquivos estáticos, no caso o app React):
+12. Modificar o arquivo `src/App.jsx` do projeto do back-end (desabilitar CORS e utilizar a pasta `public` como hospedagem de arquivos estáticos, no caso o app React):
 
 ```diff
 import express from 'express';

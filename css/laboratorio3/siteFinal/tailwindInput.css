@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Raleway", sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));

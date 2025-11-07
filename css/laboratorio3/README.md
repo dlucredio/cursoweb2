@@ -9,4 +9,4 @@ Solução usando TailwindCSS:
 Código-fonte:
 
 * [index.html](siteFinal/index.html)
-* [tailwind.config.js](siteFinal/tailwind.config.js) (foi configurada uma fonte diferente)
+* [tailwindInput.css](siteFinal/tailwindInput.css) (foi configurada uma fonte diferente)

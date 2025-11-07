@@ -12,6 +12,8 @@ npm install tailwindcss @tailwindcss/cli
 3. Crie um arquivo chamado `tailwindInput.css`, com o seguinte conteúdo:
 ```css
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
 ```
 
 4. Modifique o arquivo `package.json`:

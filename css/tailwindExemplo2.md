@@ -32,9 +32,7 @@ Repetir a mesma configuração do projeto com os [exemplos básicos do Tailwind]
 2. Modificar o arquivo `tailwindInput.css` para criar um componente customizado (usar apenas em casos excepcionais):
 
 ```diff
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 +@layer components {
 +    .sidebar-icon {
@@ -84,9 +82,7 @@ Repetir a mesma configuração do projeto com os [exemplos básicos do Tailwind]
 4. Vamos adicionar uma animação para quando passamos o mouse pelos botões. Modificar o arquivo `tailwindInput.css`:
 
 ```diff
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer components {
     .sidebar-icon {
@@ -97,9 +93,7 @@ Repetir a mesma configuração do projeto com os [exemplos básicos do Tailwind]
 5. Por último, vamos adicionar um texto de dica ao lado dos botões. Modificar o arquivo `tailwindInput.css`:
 
 ```diff
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer components {
     .sidebar-icon {

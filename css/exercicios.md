@@ -6,28 +6,15 @@ Para cada laboratório, executar os seguintes passos para configurar um projeto 
 2. Execute os seguintes comandos (é preciso ter o `nodejs` instalado)
 ```sh
 npm init
-npm install -D tailwindcss
-npx tailwindcss init
+npm install tailwindcss @tailwindcss/cli
 ```
-3. Modifique o arquivo `tailwind.config.js`:
-```diff
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-+  content: ["./index.html"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-+  darkMode: 'selector'
-}
-```
-4. Crie um arquivo chamado `tailwindInput.css`, com o seguinte conteúdo:
+
+3. Crie um arquivo chamado `tailwindInput.css`, com o seguinte conteúdo:
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 ```
-5. Modifique o arquivo `package.json`:
+
+4. Modifique o arquivo `package.json`:
 ```diff
 {
   "name": "tailwind-css-tutorial",
@@ -36,7 +23,7 @@ module.exports = {
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-+    "tailwind-watch": "tailwindcss -i tailwindInput.css -o tailwindOutput.css --watch"
++    "tailwind-watch": "npx @tailwindcss/cli -i ./tailwindInput.css -o ./tailwindOutput.css --watch"
   },
   "author": "",
   "license": "ISC",
@@ -45,7 +32,7 @@ module.exports = {
   }
 }
 ```
-6. Crie um arquivo chamado `index.html`, com o seguinte conteúdo:
+5. Crie um arquivo chamado `index.html`, com o seguinte conteúdo:
 ```html
 <!DOCTYPE html>
 <html>
@@ -66,8 +53,8 @@ module.exports = {
 
 </html>
 ```
-7. Execute o comando `npm run tailwind-watch`
-8. Abra o arquivo `index.html` no navegador. Se estiver usando o VSCode, considere executar a extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para facilitar a atualização.
+6. Execute o comando `npm run tailwind-watch`
+7. Abra o arquivo `index.html` no navegador. Se estiver usando o VSCode, considere executar a extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para facilitar a atualização.
 
 <hr/>
 

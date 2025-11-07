@@ -1,26 +1,16 @@
 Repetir a mesma configuração do projeto com os [exemplos básicos do Tailwind](tailwind.md).
 
-1. Adicionar cores e fontes customizadas, modificando o arquivo `tailwind.config.js`:
+1. Adicionar cores e fontes customizadas, modificando o arquivo `tailwindInput.css`:
 
 ```
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-    content: ["./index.html"],
-    theme: {
-        extend: {
-            colors: {
-                'roxoClaro': '#9933cc',
-                'azulClaro1': '#33b5e5',
-                'azulClaro2': '#0099cc'
-            },
-            fontFamily: {
-                'sans': ['Lucida Sans', 'sans-serif']
-            },
-        },
-    },
-    plugins: [],
-    darkMode: 'class',
+@theme {
+  --font-sans: "Lucida Sans", "sans-serif";
+  --color-roxoClaro: #9933cc;
+  --color-azulClaro1: #33b5e5;
+  --color-azulClaro2: #0099cc;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
 ```
 
 2. Criar o seguinte conteúdo no arquivo `index.html`:
@@ -233,27 +223,17 @@ module.exports = {
 5. Vamos agora adicionar um modo escuro. Adicionar novas cores ao arquivo `tailwind.config.js`:
 
 ```diff
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-    content: ["./index.html"],
-    theme: {
-        extend: {
-            colors: {
-                'roxoClaro': '#9933cc',
-                'azulClaro1': '#33b5e5',
-                'azulClaro2': '#0099cc',
-+                'roxoEscuro': '#301041',
-+                'azulEscuro1': '#103947',
-+                'azulEscuro2': '#175266',
-            },
-            fontFamily: {
-                'sans': ['Lucida Sans', 'sans-serif']
-            },
-        },
-    },
-    plugins: [],
-    darkMode: 'class',
+@theme {
+  --font-sans: "Lucida Sans", "sans-serif";
+  --color-roxoClaro: #9933cc;
+  --color-azulClaro1: #33b5e5;
+  --color-azulClaro2: #0099cc;
++   --color-roxoEscuro: #301041;
++   --color-azulEscuro1: #103947;
++   --color-azulEscuro2: #175266;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
 ```
 
 6. Modificar o arquivo `index.html`:
@@ -325,4 +305,21 @@ module.exports = {
 </html>
 ```
 
-7. Alternar entre os modos claro e escuro para ver os efeitos
+7. Alternar entre os modos claro e escuro (modificando no elemento `html`) para ver os efeitos
+8. Se quiser detectar o modo do navegador, é só excluir a seguinte linha do arquivo `.css`:
+
+```diff
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Lucida Sans", "sans-serif";
+  --color-roxoClaro: #9933cc;
+  --color-azulClaro1: #33b5e5;
+  --color-azulClaro2: #0099cc;
+  --color-roxoEscuro: #301041;
+  --color-azulEscuro1: #103947;
+  --color-azulEscuro2: #175266;
+}
+
+- @custom-variant dark (&:where(.dark, .dark *));
+```

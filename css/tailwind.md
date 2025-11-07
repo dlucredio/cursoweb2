@@ -12,27 +12,14 @@ Primeiro exemplo, um "Alô mundo utilizando Tailwind CSS"
 2. Execute os seguintes comandos
 ```sh
 npm init
-npm install -D tailwindcss
-npx tailwindcss init
+npm install tailwindcss @tailwindcss/cli
 ```
-3. Modifique o arquivo `tailwind.config.js`:
-```diff
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-+  content: ["./index.html"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-```
-4. Crie um arquivo chamado `tailwindInput.css`, com o seguinte conteúdo:
+3. Crie um arquivo chamado `tailwindInput.css`, com o seguinte conteúdo:
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 ```
-5. Modifique o arquivo `package.json`:
+
+4. Modifique o arquivo `package.json`:
 ```diff
 {
   "name": "tailwind-css-tutorial",
@@ -41,7 +28,7 @@ module.exports = {
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-+    "tailwind-watch": "tailwindcss -i tailwindInput.css -o tailwindOutput.css --watch"
++    "tailwind-watch": "npx @tailwindcss/cli -i ./tailwindInput.css -o ./tailwindOutput.css --watch"
   },
   "author": "",
   "license": "ISC",
@@ -50,7 +37,7 @@ module.exports = {
   }
 }
 ```
-6. Crie um arquivo chamado `index.html`, com o seguinte conteúdo:
+5. Crie um arquivo chamado `index.html`, com o seguinte conteúdo:
 ```html
 <!doctype html>
 <html>
@@ -66,10 +53,10 @@ module.exports = {
 </body>
 </html>
 ```
-7. Execute o comando `npm run tailwind-watch`
-8. Abra o arquivo `index.html` no navegador. Se estiver usando o VSCode, considere executar a extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para facilitar a atualização.
-9. Veja como o texto "Hello world!" está sendo exibido em tamanho grande, negrito e sublinhado, conforme as classes do elemento `h1`. Quaisquer mudanças feitas no código são imediatamente atualizadas no navegador (pode ser necessário dar um refresh, devido ao processo de recompilação do CSS e integração com o Live Server).
-10. Conceitos principais:
+6. Execute o comando `npm run tailwind-watch`
+7. Abra o arquivo `index.html` no navegador. Se estiver usando o VSCode, considere executar a extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para facilitar a atualização.
+8. Veja como o texto "Hello world!" está sendo exibido em tamanho grande, negrito e sublinhado, conforme as classes do elemento `h1`. Quaisquer mudanças feitas no código são imediatamente atualizadas no navegador (pode ser necessário dar um refresh, devido ao processo de recompilação do CSS e integração com o Live Server).
+9. Conceitos principais:
 * [Utility-first Fundamentals](https://tailwindcss.com/docs/utility-first)
 * [Hover, Focus and Other States](https://tailwindcss.com/docs/hover-focus-and-other-states)
 * [Responsive Design](https://tailwindcss.com/docs/responsive-design)
@@ -77,7 +64,7 @@ module.exports = {
 * [Reusing styles](https://tailwindcss.com/docs/reusing-styles)
 * [Adding Custom Styles](https://tailwindcss.com/docs/adding-custom-styles)
 * [Functions & Directives](https://tailwindcss.com/docs/functions-and-directives)
-11. Para mais conceitos avançados, [visite a documentação oficial](https://tailwindcss.com/docs/)
+10. Para mais conceitos avançados, [visite a documentação oficial](https://tailwindcss.com/docs/)
 
 <hr/>
 

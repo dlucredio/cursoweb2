@@ -3,4 +3,3 @@ export function formatDate(date) {
     dateObj.setTime( dateObj.getTime() + dateObj.getTimezoneOffset()*60*1000 );
     return dateObj.toLocaleDateString();
 }
-

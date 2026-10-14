@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router';
 import Layout from './pages/Layout';
 import Home from './pages/Home';
 import PlaceBet from './pages/PlaceBet';

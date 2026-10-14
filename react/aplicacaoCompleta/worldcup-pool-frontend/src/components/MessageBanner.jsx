@@ -15,5 +15,4 @@ export function MessageBanner({ content, type }) {
     return <div className={bannerClasses}>
         {content}
     </div>;
-
 }

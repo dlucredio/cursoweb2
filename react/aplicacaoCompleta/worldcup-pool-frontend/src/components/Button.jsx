@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 export function Button({label, color, link, action}) {
     let buttonColorClasses = ''

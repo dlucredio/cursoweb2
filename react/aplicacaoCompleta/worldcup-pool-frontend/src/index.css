@@ -1,12 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Unbounded", sans-serif;
+}
 
 html,
 body,
-#root,
-#root>div {
-    min-height: 100%
+#root {
+    width: 100%;
+    min-height: 100%;
+}
+
+body,
+#root {
+    min-height: 100dvh;
+}
+
+body {
+    font-family: var(--font-sans);
 }

@@ -13,24 +13,12 @@ npm run dev
 
 2. Em seguida, podemos instalar o TailwindCSS, seguindo [as instruções na página oficial do vite](https://tailwindcss.com/docs/installation/using-vite).
 
-* Ao término da configuração, adicione uma configuração para definir o tema claro/escuro com base em classe. Modifique o arquivo `tailwind.config.js`:
+* O arquivo que deve ser alterado para incluir a configuração `@import "tailwindcss";` é o `src/index.css`. Modifique-o para ficar assim:
 
-```diff
-/** @type {import('tailwindcss').Config} */
+```css
+@import "tailwindcss";
 
-const defaultTheme = require('tailwindcss/defaultTheme')
-
-module.exports = {
-+    darkMode: 'class',
-    content: [
-        "./src/**/*.{js,jsx,ts,tsx}",
-    ],
-    theme: {
-        extend: {
-        },
-    },
-    plugins: [],
-}
+@custom-variant dark (&:where(.dark, .dark *));
 ```
 
 3. Vamos começar limpando o projeto. Apagar tudo da pasta `src` e deixar somente os seguintes arquivos:
@@ -41,69 +29,48 @@ index.css
 main.jsx
 ```
 
-4. Agora vamos instalar uma fonte customizada. Se não quiser aprender o processo todo, basta copiar o código abaixo e pular para o passo 9. Se quiser aprender a instalar outras fontes, veja as instruções detalhadas nos passos 5 a 8:
+4. Agora vamos instalar uma fonte customizada e os ícones Material. Se quiser outra fonte, busque em [Google fonts](https://fonts.google.com/). Copie o código abaixo.
 ```
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
 ```
 
-5. Vá até o [Google fonts](https://fonts.google.com/) e procure pela fonte chamada "Unbounded" (ou outra, se preferir).
-
-6. Selecione todas as variantes dessa fonte (procure pelos botões "Select ExtraLight 200", "Select Light 300", etc, e clique em todos)
-
-7. Clique, na barra de ferramentas, na opção "View selected families".
-
-8. Procure pelo código utilizado para embutir a fonte, selecionando a opção `@import`. Copie o código do `@import`, mas apenas o trecho entre `<style>` e `</style>`.
-
-9. Abra o arquivo `src/index.css`, que você já modificou no passo 2, e cole o conteúdo copiado no topo. Vamos aproveitar que estamos aqui e vamos adicionar algumas regras CSS para poder trabalhar em modo *fullscreen* com nosso aplicativo:
+5. Abra o arquivo `src/index.css`, que você já modificou no passo 2, e cole o conteúdo copiado no topo. Vamos aproveitar que estamos aqui e vamos adicionar algumas regras CSS para poder trabalhar em modo *fullscreen* com nosso aplicativo:
 
 ```diff
 +@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
++@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
++@theme {
++    --font-sans: "Unbounded", sans-serif;
++}
 
 +html,
 +body,
-+#root,
-+#root>div {
-+    min-height: 100%
++#root {
++    width: 100%;
++    min-height: 100%;
++}
+
++body,
++#root {
++    min-height: 100dvh;
++}
+
++body {
++    font-family: var(--font-sans);
 +}
 ```
 
-10. Para concluir a instalação da fonte, vamos estender o tema padrão do Tailwind para incluir a nova fonte como a prioritária na renderização. Para não perder as opções anteriores, vamos inclui-las na sequência da família `sans` (sem serifa).
-11. Para isso, modificar o arquivo `tailwind.config.js`:
-
-```diff
-/** @type {import('tailwindcss').Config} */
-
-+const defaultTheme = require('tailwindcss/defaultTheme')
-
-module.exports = {
-    darkMode: 'class',
-    content: [
-        "./src/**/*.{js,jsx,ts,tsx}",
-    ],
-    theme: {
-+        extend: {
-+            fontFamily: {
-+                'sans': ['Unbounded', ...defaultTheme.fontFamily.sans],
-+            }
-+        },
-    },
-    plugins: [],
-}
-```
-
-12. Já que acabamos de instalar uma fonte, vamos continuar com a parte visual e instalar um pacote de ícones. Utilizaremos apenas um, na verdade (para o menu na barra de navegação), mas é conveniente ter uma coleção à disposição para utilizar. Utilizaremos o [React Icons](https://react-icons.github.io/react-icons/). Para instalar, executar o comando:
-
-```npm install react-icons```
-
-13. Estamos quase terminando de configurar o projeto. O próximo passo é instalar o pacote `React Router`, para facilitar a transição entre as diferentes telas da aplicação. Execute o seguinte comando:
+6. Estamos quase terminando de configurar o projeto. O próximo passo é instalar o pacote `React Router`, para facilitar a transição entre as diferentes telas da aplicação. Execute o seguinte comando:
 
 ```npm install -D react-router-dom```
 
-14. Agora podemos fazer o "esqueleto" básico da aplicação. A estrutura de diretórios será a seguinte:
+7. Agora podemos fazer o "esqueleto" básico da aplicação. A estrutura de diretórios será a seguinte:
 
 * Pode criar agora os diretórios que estão faltando
 
@@ -121,8 +88,8 @@ worldcup-pool-frontend
 +-- (outros arquivos: package.json, .gitignore, etc)
 ```
 
-15. Vamos começar criando a navegação principal do aplicativo.
-16. Criar o arquivo `src/pages/Layout.jsx`:
+8. Vamos começar criando a navegação principal do aplicativo.
+9. Criar o arquivo `src/pages/Layout.jsx`:
 
 * Note o código comentado. Você pode, posteriormente, trocar seu conteúdo com o da linha anterior para forçar o modo noturno.
 
@@ -141,7 +108,7 @@ const Layout = () => {
 export default Layout;
 ```
 
-17. Criar o arquivo `src/pages/Home.jsx`:
+10. Criar o arquivo `src/pages/Home.jsx`:
 
 ```js
 function Home() {
@@ -155,7 +122,7 @@ function Home() {
 export default Home;
 ```
 
-18. Criar o arquivo `src/pages/PlaceBet.jsx`:
+11. Criar o arquivo `src/pages/PlaceBet.jsx`:
 
 ```js
 function PlaceBet() {
@@ -169,7 +136,7 @@ function PlaceBet() {
 export default PlaceBet;
 ```
 
-19. Criar o arquivo `src/pages/ViewBets.jsx`:
+12. Criar o arquivo `src/pages/ViewBets.jsx`:
 
 ```js
 function ViewBets() {
@@ -183,7 +150,7 @@ function ViewBets() {
 export default ViewBets;
 ```
 
-20. Substituir o conteúdo do arquivo `src/App.jsx` pelo seguinte:
+13. Substituir o conteúdo do arquivo `src/App.jsx` pelo seguinte:
 
 ```js
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -210,18 +177,18 @@ function App() {
 export default App;
 ```
 
-21. Já podemos executar o projeto pela primeira vez para ver a estrutura principal funcionando:
+14. Já podemos executar o projeto pela primeira vez para ver a estrutura principal funcionando:
 
 ```npm run start```
 
-22. Experimente navegar, digitando as diferentes rotas na barra de endereços do navegador:
+15. Experimente navegar, digitando as diferentes rotas na barra de endereços do navegador:
 
 * `http://localhost:3000/` - Página inicial
 * `http://localhost:3000/placeBet` - Página para fazer uma aposta
 * `http://localhost:3000/viewBets` - Página para ver as apostas
 
-23. Vamos começar construindo alguns componentes reutilizáveis.
-24. Criar arquivo `src/components/Button.jsx`:
+16. Vamos começar construindo alguns componentes reutilizáveis.
+17. Criar arquivo `src/components/Button.jsx`:
 
 ```js
 import { Link } from "react-router-dom";
@@ -252,7 +219,7 @@ export function Button({label, color, link, action}) {
 }
 ```
 
-25. Criar arquivo `src/components/FormInput.jsx`:
+18. Criar arquivo `src/components/FormInput.jsx`:
 
 ```js
 export function FormInput({ id, value, label, type, size, onChange }) {
@@ -275,7 +242,7 @@ export function FormInput({ id, value, label, type, size, onChange }) {
 }
 ```
 
-26. Criar arquivo `src/components/MessageBanner.jsx`:
+19. Criar arquivo `src/components/MessageBanner.jsx`:
 
 ```js
 export function MessageBanner({ content, type }) {
@@ -299,7 +266,7 @@ export function MessageBanner({ content, type }) {
 }
 ```
 
-27. Criar arquivo `src/components/NavBar.jsx`:
+20. Criar arquivo `src/components/NavBar.jsx`:
 
 ```js
 import { Link } from "react-router-dom";
@@ -334,9 +301,9 @@ export function NavBar() {
 }
 ```
 
-28. Experimente usar esses componentes para ver como eles funcionam
-29. Também vamos precisar de uma função auxiliar. Ainda que seja uma só, vamos criar um arquivo para guardar essa e outras que possam surgir.
-30. Criar arquivo `src/utils/utils.jsx`:
+21. Experimente usar esses componentes para ver como eles funcionam
+22. Também vamos precisar de uma função auxiliar. Ainda que seja uma só, vamos criar um arquivo para guardar essa e outras que possam surgir.
+33. Criar arquivo `src/utils/utils.jsx`:
 
 ```js
 export function formatDate(date) {
@@ -346,8 +313,8 @@ export function formatDate(date) {
 }
 ```
 
-31. Agora já podemos começar a construir as páginas.
-32. Substituir o conteúdo do arquivo `src/pages/Home.jsx`:
+24. Agora já podemos começar a construir as páginas.
+25. Substituir o conteúdo do arquivo `src/pages/Home.jsx`:
 
 ```js
 import { Button } from "../components/Button";
@@ -370,7 +337,7 @@ function Home() {
 export default Home;
 ```
 
-33. Substituir o conteúdo do arquivo `src/pages/PlaceBet.jsx`:
+26. Substituir o conteúdo do arquivo `src/pages/PlaceBet.jsx`:
 
 ```js
 import { Button } from "../components/Button";
@@ -426,7 +393,7 @@ function PlaceBet() {
 export default PlaceBet;
 ```
 
-34. Substituir o conteúdo do arquivo `src/pages/ViewBets.jsx`:
+27. Substituir o conteúdo do arquivo `src/pages/ViewBets.jsx`:
 
 ```js
 import { NavBar } from "../components/NavBar";
@@ -505,8 +472,8 @@ function ViewBets() {
 export default ViewBets;
 ```
 
-35. Agora vamos implementar a lógica das telas.
-36. Modificar o arquivo `src/pages/PlaceBet.jsx`:
+28. Agora vamos implementar a lógica das telas.
+29. Modificar o arquivo `src/pages/PlaceBet.jsx`:
 
 ```diff
 +import { useState } from 'react';
@@ -676,7 +643,7 @@ function PlaceBet() {
 export default PlaceBet;
 ```
 
-37. Modificar o arquivo `src/pages/ViewBets.jsx`:
+30. Modificar o arquivo `src/pages/ViewBets.jsx`:
 
 ```diff
 +import { useEffect, useState } from "react";
@@ -737,4 +704,4 @@ function ViewBets() {
 export default ViewBets;
 ```
 
-35. Pronto, agora é só testar.
+31. Pronto, agora é só testar.

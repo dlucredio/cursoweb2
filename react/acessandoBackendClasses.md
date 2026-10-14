@@ -245,7 +245,7 @@ export default App;
 
 `npm run build`
 
-11. Será gerada uma pasta `build`. Copiar seu conteúdo para dentro de uma pasta `public` do projeto do back-end (sem incluir a pasta `build`)
+11. Será gerada uma pasta `dist`. Copiar seu conteúdo para dentro de uma pasta `public` do projeto do back-end (sem incluir a pasta `build`)
 12. Modificar o arquivo `src/App.jsx` do projeto do back-end (desabilitar CORS e utilizar a pasta `public` como hospedagem de arquivos estáticos, no caso o app React):
 
 ```diff

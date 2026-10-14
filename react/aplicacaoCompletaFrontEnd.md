@@ -43,8 +43,6 @@ main.jsx
 
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 +@theme {
 +    --font-sans: "Unbounded", sans-serif;
 +}

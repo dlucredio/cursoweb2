@@ -68,7 +68,7 @@ main.jsx
 
 6. Estamos quase terminando de configurar o projeto. O próximo passo é instalar o pacote `React Router`, para facilitar a transição entre as diferentes telas da aplicação. Execute o seguinte comando:
 
-```npm install -D react-router-dom```
+```npm install react-router```
 
 7. Agora podemos fazer o "esqueleto" básico da aplicação. A estrutura de diretórios será a seguinte:
 
@@ -94,7 +94,7 @@ worldcup-pool-frontend
 * Note o código comentado. Você pode, posteriormente, trocar seu conteúdo com o da linha anterior para forçar o modo noturno.
 
 ```js
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
 
 const Layout = () => {
     return (
@@ -153,7 +153,7 @@ export default ViewBets;
 13. Substituir o conteúdo do arquivo `src/App.jsx` pelo seguinte:
 
 ```js
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router';
 import Layout from './pages/Layout';
 import Home from './pages/Home';
 import PlaceBet from './pages/PlaceBet';
@@ -179,19 +179,19 @@ export default App;
 
 14. Já podemos executar o projeto pela primeira vez para ver a estrutura principal funcionando:
 
-```npm run start```
+```npm run dev```
 
 15. Experimente navegar, digitando as diferentes rotas na barra de endereços do navegador:
 
-* `http://localhost:3000/` - Página inicial
-* `http://localhost:3000/placeBet` - Página para fazer uma aposta
-* `http://localhost:3000/viewBets` - Página para ver as apostas
+* `http://localhost:5173/` - Página inicial
+* `http://localhost:5173/placeBet` - Página para fazer uma aposta
+* `http://localhost:5173/viewBets` - Página para ver as apostas
 
 16. Vamos começar construindo alguns componentes reutilizáveis.
 17. Criar arquivo `src/components/Button.jsx`:
 
 ```js
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 export function Button({label, color, link, action}) {
     let buttonColorClasses = ''
@@ -262,15 +262,13 @@ export function MessageBanner({ content, type }) {
     return <div className={bannerClasses}>
         {content}
     </div>;
-
 }
 ```
 
 20. Criar arquivo `src/components/NavBar.jsx`:
 
 ```js
-import { Link } from "react-router-dom";
-import { MdMenu } from "react-icons/md";
+import { Link } from "react-router";
 import { useState } from "react";
 
 export function NavBar() {
@@ -283,10 +281,14 @@ export function NavBar() {
     return (
         <div className="w-full bg-gray-300 dark:bg-slate-800 text-white flex flex-row p-3 justify-between items-center">
             <Link to="/" className="text-blue-800 dark:text-blue-400 text-center text-base sm:text-2xl font-black uppercase select-none">Bolão da copa</Link>
-            <div className="cursor-pointer">
-                <MdMenu onClick={toggleFloatMenuShown} className="text-2xl sm:hidden text-green-700 dark:text-green-400 dark:hover:text-green-200 hover:text-green-900 select-none" />
+            <div className="cursor-pointer sm:hidden">
+                <span
+                    onClick={toggleFloatMenuShown}
+                    className="material-symbols-outlined text-2xl text-green-700 dark:text-green-400 dark:hover:text-green-200 hover:text-green-900 select-none">
+                    menu
+                </span>
                 <div className="relative">
-                    <div className={`absolute right-0 top-0 flex sm:hidden flex-col items-center bg-gray-300 dark:bg-slate-800 border-solid border-2 border-white dark:border-slate-600 rounded-xl p-4 drop-shadow transition-all duration-500 ${floatMenuShown ? 'visible opacity-100' : 'collapse opacity-0'}`}>
+                    <div className={`absolute right-0 top-0 flex flex-col items-center bg-gray-300 dark:bg-slate-800 border-solid border-2 border-white dark:border-slate-600 rounded-xl p-4 drop-shadow transition-all duration-500 ${floatMenuShown ? 'visible opacity-100' : 'collapse opacity-0'}`}>
                         <Link to="/placeBet" className="text-green-700 hover:text-green-900 dark:text-green-400 dark:hover:text-green-200 mb-4 select-none">Palpitar</Link>
                         <Link to="/viewBets" className="text-green-700 hover:text-green-900 dark:text-green-400 dark:hover:text-green-200 select-none">Ver</Link>
                     </div>
